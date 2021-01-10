@@ -1,3 +1,3 @@
 # Algoritmit ongelmanratkaisussa, Helsingin yliopisto
 
-Kurssi alkaa tammikuussa 2021
+[Kurssijärjestelmä](https://cses.fi/alon/list/)
