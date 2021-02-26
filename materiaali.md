@@ -71,8 +71,18 @@ Voit nyt ratkoa seuraavat tehtävät:
 * [Weird Algorithm](https://cses.fi/alon/task/1068)
 * [Increasing Array](https://cses.fi/alon/task/1094)
 * [Two Sets](https://cses.fi/alon/task/1092)
+* [Collecting Numbers](https://cses.fi/alon/task/2216)
 
 ## Tietorakenteet
+
+Voit nyt ratkoa seuraavat tehtävät:
+
+* [Concert Tickets](https://cses.fi/alon/task/1091)
+* [Movie Festival](https://cses.fi/alon/task/1629)
+* [Missing Coin Sum](https://cses.fi/alon/task/2183)
+* [Room Allocation](https://cses.fi/alon/task/1164)
+* [Josephus Problem I](https://cses.fi/alon/task/2162)
+* [Subarray Distinct Values](https://cses.fi/alon/task/2162)
 
 ## Dynaaminen ohjelmointi
 
