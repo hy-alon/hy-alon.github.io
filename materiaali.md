@@ -199,7 +199,15 @@ Voit nyt ratkoa seuraavat tehtävät:
 
 ## Nopea eteneminen
 
-## Pienin muutos mediaani
+## Pienin muutos
+
+Annettuna on `n` lukua `a[0]`, `a[1]`, ..., `a[n-1]` ja tehtävänä on löytää luku `x`, joka minimoi summan `abs(a[0]-x)+abs(a[1]-x)+...+abs(a[n-1]-x)` (tässä `abs` tarkoittaa itseisarvoa).
+
+Osoittautuu, että sopiva `x` on aina _mediaani_ luvuista `a[0]`, `a[1]`, ..., `a[n-1]`. Tämä johtuu siitä, että jos `x` olisi pienempi kuin mediaani, sen kasvattaminen parantaisi ratkaisua, koska etäisyys pienenisi useampaan lukuun kuin suurenisi. Samasta syystä jos `x` olisi suurempi kuin mediaani, sen vähentäminen parantaisi ratkaisua.
+
+Voit nyt ratkoa seuraavan tehtävän:
+
+* [Stick Lengths](https://cses.fi/alon/task/1074)
 
 ## Lähimmät pienimmät
 
