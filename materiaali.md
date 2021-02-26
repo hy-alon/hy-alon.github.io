@@ -66,6 +66,12 @@ aybabtu
 1 2 3
 ```
 
+Voit nyt ratkoa seuraavat tehtävät:
+
+* [Weird Algorithm](https://cses.fi/alon/task/1068)
+* [Increasing Array](https://cses.fi/alon/task/1094)
+* [Two Sets](https://cses.fi/alon/task/1092)
+
 ## Tietorakenteet
 
 ## Dynaaminen ohjelmointi
