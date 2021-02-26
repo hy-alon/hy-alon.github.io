@@ -153,11 +153,27 @@ auto it2 = s.end();
 it2--;
 cout << *it2 << "\n"; // 8
 
-auto it1 = s.lower_bound(3);
-cout << *it1 << "\n"; // 3
-auto it2 = s.upper_bound(3);
-cout << *it2 << "\n"; // 5
+auto it3 = s.lower_bound(3);
+cout << *it3 << "\n"; // 3
+auto it4 = s.upper_bound(3);
+cout << *it4 << "\n"; // 5
 ```
+
+Tietorakenne `map` on avain-arvo-rakenne, joka perustuu myös tasapainoiseen binääripuuhun. Sitä voidaan käyttää seuraavasti:
+
+```cpp
+map<string,int> m;
+m["apina"] = 1;
+m["banaani"] = 2;
+m["cembalo"] = 3;
+
+cout << m["banaani"] << "\n"; // 1
+cout << m["gorilla"] << "\n"; // 0
+```
+
+Huomaa, että kun haettu alkio puuttuu, se lisätään mukaan automaattisesti oletusarvolla. Tämän takia yllä olevassa koodissa haku avaimella "gorilla" tuottaa arvon 0.
+
+Muita käteviä C++:n tietorakenteita ovat `deque` eli taulukkolista, jota pystyy muokkaamaan tehokkaasti sekä alusta että lopusta, sekä `multiset` eli joukkorakenne, jossa sama alkio voi esiintyä useammin kuin yhden kerran.
 
 Voit nyt ratkoa seuraavat tehtävät:
 
