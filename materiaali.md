@@ -205,6 +205,38 @@ Voit nyt ratkoa seuraavat tehtävät:
 
 ## Binäärihaku
 
+Binäärihaun avulla voidaan etsiä logaritmisessa ajassa haluttu alkio järjestetystä taulukosta. Kätevä tapa toteuttaa binäärihaku on seuraava:
+
+```cpp
+int k = 0;
+for (int b = n; b >= 1; b /= 2) {
+     while (k+b < n && a[k+b] <= x) k += b;
+}
+if (a[k] == x) // alkio x löytyi kohdasta k
+```
+
+Tämä koodi etsii lukua `x` taulukosta `a`, jossa on `n` lukua. Haku lähtee liikkeelle taulukon alusta ja joka vaiheessa hypätään eteenpäin `b` askelta, jos kohteena oleva indeksi on taulukossa ja sen kohdalla oleva arvo on enintään `x`. Koodin aikavaativuus on logaritminen, koska `b` puolittuu joka kierroksella.
+
+Käytännössä binäärihakua ei kuitenkaan tarvitse toteuttaa yleensä alkion etsimistä varten, koska C++:n standardikirjastossa on paljon valmiita työkaluja tähän (mukaan lukien funktio `binary_search`). Binäärihaun todellinen hyöty on kuitenkin siinä, että sen avulla voidaan etsiä funktion _muutoskohta_.
+
+Oletetaan, että funktio `f(x)` saa arvon 0, kun `x` on enintään `k`, ja arvon 1, kun `x` on yli `k`. Binäärihaun avulla voidaan löytää tehokkaasti muutoskohta `k` seuraavasti:
+
+```cpp
+int k = 0;
+for (int b = n; b >= 1; b /= 2) {
+    while (f(k+b) == 0) k += b;
+}
+```
+
+Tässä tapauksessa `n` on sopivasti valittu riittävän suuri luku, jonka tiedetään olevan suurempi kuin muutoskohta `k`.
+
+Muutoskohdan etsimisestä on hyötyä, koska monen ongelman voi esittää muodossa "etsi ensimmäinen kohta, jossa tapahtuu jotakin" (esimerkiksi pienin aika, jossa tehdas saa valmistettua halutun määrän tuotteita). Binäärihaun avulla riittää kokeilla vain logaritminen määrä vaihtoehtoja kyseiselle kohdalle.
+
+Voit nyt ratkoa seuraavat tehtävät:
+
+* [Factory Machines](https://cses.fi/alon/task/1620)
+* [Array Division](https://cses.fi/alon/task/1085)
+
 ## Policy-based rakenne
 
 ## Eulerin polku
