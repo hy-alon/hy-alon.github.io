@@ -117,6 +117,48 @@ cout << v[3].first << "\n"; // 5
 cout << v[3].second << "\n"; // 1
 ```
 
+Tietorakenne `set` on tasapainoiseen binääripuuhun perustuva joukkorakenne. Siinä alkion lisäys, poisto ja haku toimivat tehokkaasti logaritmisessa ajassa. Koska sama alkio voi esiintyä joukossa enintään kerran, funktio `count` palauttaa aina arvon 0 (alkio ei ole joukossa) tai 1 (alkio on joukossa).
+
+```cpp
+set<int> s;
+s.insert(5);
+s.insert(2);
+s.insert(8);
+s.insert(3);
+
+cout << s.count(3) << "\n"; // 1
+cout << s.count(4) << "\n"; // 0
+
+s.erase(3);
+
+cout << s.count(3) << "\n"; // 1
+```
+
+Joukkoa on usein kätevää käsitellä iteraattorin avulla. Iteraattori on erityinen muuttuja, joka osoittaa tiettyyn joukon alkioon. Se toimii melko samalla tavalla kuin osoitin.
+
+Funktio `begin` antaa iteraattorin joukon ensimmäiseen alkioon ja funktio `end` antaa iteraattorin joukon viimeisen alkion _jälkeiseen_ kohtaan. Koska binääripuun sisältö on järjestyksessä, tämän avulla voidaan selvittää joukon pienin ja suurin alkio. Huomaa, että jälkimmäisessä tapauksessa iteraattorin kohtaa täytyy vähentää yhdellä, jotta päästään viimeiseen alkioon.
+
+Funktio `lower_bound` antaa iteraattorin pienimpään alkioon, joka on yhtä suuri tai suurempi kuin annettu alkio. Funktio `upper_bound` puolestaan antaa iteraattorin alkioon, joka on suurempi kuin annettu alkio. Jos alkiota ei ole olemassa, iteraattori osoittaa viimeisen alkion jälkeiseen alkioon.
+
+```cpp
+set<int> s;
+s.insert(5);
+s.insert(2);
+s.insert(8);
+s.insert(3);
+
+auto it1 = s.begin();
+cout << *it1 << "\n"; // 2
+auto it2 = s.end();
+it2--;
+cout << *it2 << "\n"; // 8
+
+auto it1 = s.lower_bound(3);
+cout << *it1 << "\n"; // 3
+auto it2 = s.upper_bound(3);
+cout << *it2 << "\n"; // 5
+```
+
 Voit nyt ratkoa seuraavat tehtävät:
 
 * [Concert Tickets](https://cses.fi/alon/task/1091)
