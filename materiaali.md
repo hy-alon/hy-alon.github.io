@@ -66,7 +66,7 @@ aybabtu
 1 2 3
 ```
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
 * [Weird Algorithm](https://cses.fi/alon/task/1068)
 * [Increasing Array](https://cses.fi/alon/task/1094)
@@ -175,7 +175,7 @@ Huomaa, että kun haettu alkio puuttuu, se lisätään mukaan automaattisesti ol
 
 Muita käteviä C++:n tietorakenteita ovat `deque` eli taulukkolista, jota pystyy muokkaamaan tehokkaasti sekä alusta että lopusta, sekä `multiset` eli joukkorakenne, jossa sama alkio voi esiintyä useammin kuin yhden kerran.
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
 * [Concert Tickets](https://cses.fi/alon/task/1091)
 * [Movie Festival](https://cses.fi/alon/task/1629)
@@ -191,22 +191,20 @@ Dynaaminen ohjelmointi on keskeinen tekniikka algoritmien suunnittelussa. Siinä
 
 Jos et muista hyvin, miten dynaamista ohjelmointia käytetään, sinun kannattaa lukea [Tirakirjasta](https://www.cs.helsinki.fi/u/ahslaaks/tirakirja/) luku 9, joka käsittelee kattavasti dynaamista ohjelmointia.
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
 * [Two Sets II](https://cses.fi/alon/task/1093)
 * [Rectangle Cutting](https://cses.fi/alon/task/1744)
 
-## Pienin muutos
+## X
+
+### Pienin muutos
 
 Annettuna on `n` lukua `a[0]`, `a[1]`, ..., `a[n-1]` ja tehtävänä on löytää luku `x`, joka minimoi summan `abs(a[0]-x)+abs(a[1]-x)+...+abs(a[n-1]-x)` (tässä `abs` tarkoittaa itseisarvoa).
 
 Osoittautuu, että sopiva `x` on aina _mediaani_ luvuista `a[0]`, `a[1]`, ..., `a[n-1]`. Tämä johtuu siitä, että jos `x` olisi pienempi kuin mediaani, sen kasvattaminen parantaisi ratkaisua, koska etäisyys pienenisi useampaan lukuun kuin suurenisi. Samasta syystä jos `x` olisi suurempi kuin mediaani, sen vähentäminen parantaisi ratkaisua.
 
-Voit nyt ratkoa seuraavan tehtävän:
-
-* [Stick Lengths](https://cses.fi/alon/task/1074)
-
-## Lähimmät pienimmät
+### Lähimmät pienimmät
 
 Annettuna on taulukko, jossa on `n` alkiota, ja tehtävänä on selvittää jokaiseen kohtaan lähin edellinen kohta, jossa on pienempi alkio. Tehtävä olisi helppo ratkaista neliöllisessä ajassa, mutta myös lineaarinen ratkaisu on mahdollinen.
 
@@ -214,11 +212,7 @@ Ideana on käydä läpi taulukko vasemmalta oikealle ja pitää yllä pinoa, jos
 
 Tämä algoritmi toimii lineaarisessa ajassa, koska jokainen kohta lisätään pinoon ja poistetaan pinosta vain kerran.
 
-Voit nyt ratkoa seuraavan tehtävän:
-
-* [Nearest Smaller Values](https://cses.fi/alon/task/1645)
-
-## Binäärihaku
+### Binäärihaku
 
 Binäärihaun avulla voidaan etsiä logaritmisessa ajassa haluttu alkio järjestetystä taulukosta. Kätevä tapa toteuttaa binäärihaku on seuraava:
 
@@ -247,14 +241,16 @@ Tässä tapauksessa `n` on sopivasti valittu riittävän suuri luku, jonka tiede
 
 Muutoskohdan etsimisestä on hyötyä, koska monen ongelman voi esittää muodossa "etsi ensimmäinen kohta, jossa tapahtuu jotakin" (esimerkiksi pienin aika, jossa tehdas saa valmistettua halutun määrän tuotteita). Binäärihaun avulla riittää kokeilla vain logaritminen määrä vaihtoehtoja kyseiselle kohdalle.
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
+* [Stick Lengths](https://cses.fi/alon/task/1074)
+* [Nearest Smaller Values](https://cses.fi/alon/task/1645)
 * [Factory Machines](https://cses.fi/alon/task/1620)
 * [Array Division](https://cses.fi/alon/task/1085)
 
 ## Verkkojen käsittely
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
 * [Building Roads](https://cses.fi/alon/task/1666)
 * [Flight Discount](https://cses.fi/alon/task/1195)
@@ -265,7 +261,7 @@ Voit nyt ratkoa seuraavat tehtävät:
 
 ## Segmenttipuu
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
 * [Dynamic Range Sum Queries](https://cses.fi/alon/task/1648)
 * [Dynamic Range Minimum Queries](https://cses.fi/alon/task/1649)
@@ -278,7 +274,7 @@ Voit nyt ratkoa seuraavat tehtävät:
 
 ## Puiden käsittely
 
-Voit nyt ratkoa seuraavat tehtävät:
+### Tehtävät
 
 * [Tree Diameter](https://cses.fi/alon/task/1131)
 * [Tree Distances I](https://cses.fi/alon/task/1132)
