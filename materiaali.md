@@ -748,3 +748,48 @@ TODO
 * [Company Queries II](https://cses.fi/alon/task/1688)
 * [Distance Queries](https://cses.fi/alon/task/1135)
 * [Finding a Centroid](https://cses.fi/alon/task/2079)
+
+## Matematiikka
+
+### Tehtävät
+
+* [Counting Divisors](https://cses.fi/alon/task/1713)
+* [Common Divisors](https://cses.fi/alon/task/1081)
+* [Binomial Coefficients](https://cses.fi/alon/task/1079)
+* [Distributing Apples](https://cses.fi/alon/task/1716)
+* [Nim Game I](https://cses.fi/alon/task/1730)
+* [Nim Game II](https://cses.fi/alon/task/1098)
+* [Stair Game](https://cses.fi/alon/task/1099)
+
+## Merkkijonot
+
+### Tehtävät
+
+* [String Matching](https://cses.fi/alon/task/1753)
+* [Finding Borders](https://cses.fi/alon/task/1732)
+* [Minimal Rotation](https://cses.fi/alon/task/1110)
+* [Counting Patterns](https://cses.fi/alon/task/2103)
+* [Pattern Positions](https://cses.fi/alon/task/2104)
+* [Distinct Substrings](https://cses.fi/alon/task/2105)
+* [Substring Distribution](https://cses.fi/alon/task/2110)
+
+## X
+
+### Tehtävät
+
+* [Meet in the Middle](https://cses.fi/alon/task/1628)
+* [Reachable Nodes](https://cses.fi/alon/task/2138)
+
+## Treap-rakenne
+
+### Tehtävät
+
+* [Cut and Paste](https://cses.fi/alon/task/2072)
+* [Substring Reversals](https://cses.fi/alon/task/2073)
+
+## X
+
+### Tehtävät
+
+* [Necessary Roads](https://cses.fi/alon/task/2076)
+* [Necessary Cities](https://cses.fi/alon/task/2077)
