@@ -468,6 +468,8 @@ void dfs(int node, int prev) {
 }
 ```
 
+Dynaamisen ohjelmoinnin avulla voidaan laskea tehokkaasti esimerkiksi puun _läpimitta_ eli suurin etäisyys kahden solmun välillä tai yleisemmin jokaiseen solmuun suurin etäisyys toiseen solmuun. Tällaisissa tehtävissä voi auttaa laskea jokaiseen solmuun useita etäisyyksiä, kuten kuinka pitkiä ovat kaksi pisintä polkua solmusta alaspäin kahteen eri suuntaan.
+
 ### Esivanhemman etsiminen
 
 Tavallinen kysely puussa on selvittää solmun esivanhempi, johon pääsee kulkemalla tasoja ylöspäin puussa. Merkitään `f(x,k)` solmun `x` esivanhempaa `k` tasoa ylempänä. Esimerkiksi seuraavassa kuvassa `f(2,1)=1` ja `f(8,2)=4`.
