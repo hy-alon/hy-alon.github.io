@@ -182,6 +182,7 @@ Voit nyt ratkoa seuraavat tehtävät:
 * [Missing Coin Sum](https://cses.fi/alon/task/2183)
 * [Room Allocation](https://cses.fi/alon/task/1164)
 * [Josephus Problem I](https://cses.fi/alon/task/2162)
+* [Josephus Problem II](https://cses.fi/alon/task/2163)
 * [Subarray Distinct Values](https://cses.fi/alon/task/2162)
 
 ## Dynaaminen ohjelmointi
@@ -216,12 +217,6 @@ Tämä algoritmi toimii lineaarisessa ajassa, koska jokainen kohta lisätään p
 Voit nyt ratkoa seuraavan tehtävän:
 
 * [Nearest Smaller Values](https://cses.fi/alon/task/1645)
-
-## Policy-based rakenne
-
-Voit nyt ratkoa seuraavan tehtävän:
-
-* [Josephus Problem II](https://cses.fi/alon/task/2163)
 
 ## Binäärihaku
 
