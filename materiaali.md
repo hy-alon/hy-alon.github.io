@@ -396,7 +396,7 @@ Puu on yhtenäinen ja syklitön verkko, jossa on `n` solmua ja `n-1` kaarta. Puu
 
 Tässä on esimerkkinä puu, jossa on 6 solmua ja 5 kaarta:
 
-TODO
+![](kuvat/puu1.png)
 
 Yleensä hyvä tapa tallentaa puu on vieruslistaesitys luomalla taulukko, jossa on vektoreita. Esimerkiksi voimme tallentaa yllä olevan puun näin:
 
@@ -420,7 +420,7 @@ Puun käsittelyä helpottaa usein, jos valitsemme yhden sen solmuista juureksi. 
 
 Esimerkiksi äskeinen puumme näyttää juurrettuna tältä:
 
-TODO
+![](kuvat/puu2.png)
 
 Tämän jälkeen puun solmut asettuvat tasoittain juuren alapuolelle, ja jokaisesta solmusta alkaa alipuu, jonka juurena se on.
 
@@ -472,7 +472,7 @@ void dfs(int node, int prev) {
 
 Tavallinen kysely puussa on selvittää solmun esivanhempi, johon pääsee kulkemalla tasoja ylöspäin puussa. Merkitään `f(x,k)` solmun `x` esivanhempaa `k` tasoa ylempänä. Esimerkiksi seuraavassa kuvassa `f(2,1)=1` ja `f(8,2)=4`.
 
-TODO
+![](kuvat/esiv1.png)
 
 Voimme vastata tällaisiin kyselyihin tehokkaasti `O(log n)`-ajassa hyppytaulukon avulla. Esikäsittely vie aikaa `O(n log n)`.
 
@@ -480,7 +480,7 @@ Voimme vastata tällaisiin kyselyihin tehokkaasti `O(log n)`-ajassa hyppytauluko
 
 Solmujen `a` ja `b` alin yhteinen esivanhempi on alin puun solmu, joka on kummankin solmun esivanhempi. Esimerkiksi seuraavassa kuvassa solmujen 5 ja 8 alin yhteinen esivanhempi on solmu 2.
 
-TODO
+![](kuvat/esiv2.png)
 
 Pystymme selvittämään alimman yhteisen esivanhemman tehokkaasti kahdessa vaiheessa. Ensin nostamme alemman tason solmua ylöspäin niin, että molemmat solmut ovat samalla tasolla. Tämän jälkeen nostamme solmuja yhtä aikaa ylöspäin, kunnes ne törmäävät. Molemmat vaiheet onnistuvat ajassa `O(log n)` hyppytaulukon avulla.
 
