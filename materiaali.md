@@ -29,12 +29,12 @@ int main() {
 Seuraavat komennot kääntävät ja suorittavat ohjelman Linux-ympäristössä:
 
 ```
-$ g++ test.cpp -o test -O2
+$ g++ test.cpp -o test -O2 -Wall
 $ ./test
 aybabtu
 ```
 
-Tässä ohjelman koodi on tiedostossa `test.cpp` ja siitä käännetään binääritiedosto `test`. Komennon lopussa oleva `-O2` tarkoittaa, että koodi käännetään optimointitasolla 2.
+Tässä ohjelman koodi on tiedostossa `test.cpp` ja siitä käännetään binääritiedosto `test`. Komennon lopussa `-O2` on tavallinen koodin optimointitaso ja `-Wall` ilmaisee, että kääntäjä näyttää kaikki varoitukset.
 
 ## Syöte ja tuloste
 
