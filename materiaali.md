@@ -257,8 +257,33 @@ Voit nyt ratkoa seuraavat tehtävät:
 
 ## Policy-based rakenne
 
+Voit nyt ratkoa seuraavan tehtävän:
+
+* [Josephus Problem II](https://cses.fi/alon/task/2163)
+
 ## Eulerin polku
 
 ## Segmenttipuu
 
-## Etäisyydet puussa
+Voit nyt ratkoa seuraavat tehtävät:
+
+* [Dynamic Range Sum Queries](https://cses.fi/alon/task/1648)
+* [Dynamic Range Minimum Queries](https://cses.fi/alon/task/1649)
+* [Range Update Queries](https://cses.fi/alon/task/1651)
+* [Hotel Queries](https://cses.fi/alon/task/1143)
+* [List Removals](https://cses.fi/alon/task/1749)
+* [Nested Ranges Count](https://cses.fi/alon/task/2169)
+* [Distinct Values Queries](https://cses.fi/alon/task/1734)
+* [Increasing Subsequence](https://cses.fi/alon/task/1145)
+
+## Puiden käsittely
+
+Voit nyt ratkoa seuraavat tehtävät:
+
+* [Tree Diameter](https://cses.fi/alon/task/1131)
+* [Tree Distances I](https://cses.fi/alon/task/1132)
+* [Tree Distances II](https://cses.fi/alon/task/1133)
+* [Company Queries I](https://cses.fi/alon/task/1687)
+* [Company Queries II](https://cses.fi/alon/task/1688)
+* [Distance Queries](https://cses.fi/alon/task/1135)
+* [Finding a Centroid](https://cses.fi/alon/task/2079)
