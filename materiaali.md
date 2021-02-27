@@ -496,20 +496,6 @@ TODO
 * [Array Division](https://cses.fi/alon/task/1085)
 * [Meet in the Middle](https://cses.fi/alon/task/1628)
 
-## Verkkoalgoritmit
-
-### Tehtävät
-
-* [Building Roads](https://cses.fi/alon/task/1666)
-* [Flight Discount](https://cses.fi/alon/task/1195)
-* [Investigation](https://cses.fi/alon/task/1202)
-* [Mail Delivery](https://cses.fi/alon/task/1691)
-* [Planets Queries I](https://cses.fi/alon/task/1750)
-* [Planets Queries II](https://cses.fi/alon/task/1160)
-* [Reachable Nodes](https://cses.fi/alon/task/2138)
-* [Necessary Roads](https://cses.fi/alon/task/2076)
-* [Necessary Cities](https://cses.fi/alon/task/2077)
-
 ## Segmenttipuu
 
 Segmenttipuu on tietorakenne, jonka avulla voi toteuttaa tehokkaita välikyselyitä taulukkoon. Tavallisia välikyselyitä ovat välin summan laskeminen sekä välin pienimmän/suurimman alkion etsiminen.
@@ -639,7 +625,21 @@ Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo 
 * [Nested Ranges Count](https://cses.fi/alon/task/2169)
 * [Distinct Values Queries](https://cses.fi/alon/task/1734)
 
-## Puiden käsittely
+## Verkkoalgoritmit
+
+### Tehtävät
+
+* [Building Roads](https://cses.fi/alon/task/1666)
+* [Flight Discount](https://cses.fi/alon/task/1195)
+* [Investigation](https://cses.fi/alon/task/1202)
+* [Mail Delivery](https://cses.fi/alon/task/1691)
+* [Planets Queries I](https://cses.fi/alon/task/1750)
+* [Planets Queries II](https://cses.fi/alon/task/1160)
+* [Reachable Nodes](https://cses.fi/alon/task/2138)
+* [Necessary Roads](https://cses.fi/alon/task/2076)
+* [Necessary Cities](https://cses.fi/alon/task/2077)
+
+## Puualgoritmit
 
 Puu on yhtenäinen ja syklitön verkko, jossa on `n` solmua ja `n-1` kaarta. Puussa jokaisen kahden solmun välillä on yksikäsitteinen polku.
 
