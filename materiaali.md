@@ -393,9 +393,33 @@ Tällöin parit ovat järjestyksessä joukossa ensisijaisesti ensimmäisen jäse
 auto it = s.lower_bound({4,2});
 cout << it->first << " " << it->second << "\n"; // 6 1
 ```
-### Policy-based rakenne
+### Indeksoitu joukko
 
-TODO
+Kun käytössä on g++-kääntäjä, voidaan luoda myös standardikirjastoon kuulumaton tietorakenne indeksoitu joukko:
+
+```cpp
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+
+typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> indexed_set;
+```
+
+Tuloksena oleva tietorakenne on kuin `set`, mutta siinä on kaksi hyödyllistä `O(log n)`-aikaista lisäfunktiota. Funktio `find_by_order` antaa iteraattorin tietyssä kohdassa järjestyksessä olevaan alkioon. Funktio `order_of_key` puolestaan kertoo, missä kohtaa järjestystä tietty joukon alkio on (tai _olisi_, jos alkiota ei ole joukossa).
+
+```
+indexed_set s;
+s.insert(2);
+s.insert(3);
+s.insert(7);
+s.insert(9);
+
+auto x = s.find_by_order(2);
+cout << *x << "\n"; // 7
+
+cout << s.order_of_key(7) << "\n"; // 2
+cout << s.order_of_key(6) << "\n"; // 2
+cout << s.order_of_key(8) << "\n"; // 3
+```
 
 ### Tehtävät
 
