@@ -350,7 +350,7 @@ void change(int k, int x) {
     k += n;
     tree[k] = x;
     for (k /= 2; k >= 1; k /= 2) {
-        tree[k] = min(tree[2*k],tree[2*k+1]);
+        tree[k] = min(tree[2*k], tree[2*k+1]);
     }
 }
 
@@ -359,8 +359,8 @@ int getMin(int a, int b) {
     a += n; b += n;
     int x = tree[a];
     while (a <= b) {
-        if (a%2 == 1) x = min(x,tree[a++]);
-        if (b%2 == 0) x = min(x,tree[b--]);
+        if (a%2 == 1) x = min(x, tree[a++]);
+        if (b%2 == 0) x = min(x, tree[b--]);
         a /= 2; b /= 2;
     }
     return x;
@@ -430,10 +430,10 @@ Voimme käydä läpi kaikki puun solmut juuresta alkaen syvyyshaulla. Esimerkiks
 
 ```cpp
 void dfs(int node, int prev) {
-    cout << "solmu " << node << "\n";
+    cout << node << "\n";
     for (auto next : tree[node]) {
         if (next == prev) continue;
-        dfs(next,node);
+        dfs(next, node);
     }
 }
 ```
@@ -449,7 +449,7 @@ void dfs(int node, int prev) {
     count[node] = 1;
     for (auto next : tree[node]) {
         if (next == prev) continue;
-        dfs(next,node);
+        dfs(next, node);
         count[node] += count[next];
     }
 }
@@ -462,8 +462,8 @@ void dfs(int node, int prev) {
     length[node] = 0;
     for (auto next : tree[node]) {
         if (next == prev) continue;
-        dfs(next,node);
-        length[node] = max(length[node],length[next]+1);
+        dfs(next, node);
+        length[node] = max(length[node], length[next]+1);
     }
 }
 ```
