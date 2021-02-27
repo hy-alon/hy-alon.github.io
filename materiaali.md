@@ -484,14 +484,19 @@ Tässä tapauksessa `n` on sopivasti valittu riittävän suuri luku, jonka tiede
 
 Muutoskohdan etsimisestä on hyötyä, koska monen ongelman voi esittää muodossa "etsi ensimmäinen kohta, jossa tapahtuu jotakin" (esimerkiksi pienin aika, jossa tehdas saa valmistettua halutun määrän tuotteita). Binäärihaun avulla riittää kokeilla vain logaritminen määrä vaihtoehtoja kyseiselle kohdalle.
 
+### Meet in the middle
+
+TODO
+
 ### Tehtävät
 
 * [Stick Lengths](https://cses.fi/alon/task/1074)
 * [Nearest Smaller Values](https://cses.fi/alon/task/1645)
 * [Factory Machines](https://cses.fi/alon/task/1620)
 * [Array Division](https://cses.fi/alon/task/1085)
+* [Meet in the Middle](https://cses.fi/alon/task/1628)
 
-## Verkkojen käsittely
+## Verkkoalgoritmit
 
 ### Tehtävät
 
@@ -501,6 +506,9 @@ Muutoskohdan etsimisestä on hyötyä, koska monen ongelman voi esittää muodos
 * [Mail Delivery](https://cses.fi/alon/task/1691)
 * [Planets Queries I](https://cses.fi/alon/task/1750)
 * [Planets Queries II](https://cses.fi/alon/task/1160)
+* [Reachable Nodes](https://cses.fi/alon/task/2138)
+* [Necessary Roads](https://cses.fi/alon/task/2076)
+* [Necessary Cities](https://cses.fi/alon/task/2077)
 
 ## Segmenttipuu
 
@@ -773,23 +781,9 @@ TODO
 * [Distinct Substrings](https://cses.fi/alon/task/2105)
 * [Substring Distribution](https://cses.fi/alon/task/2110)
 
-## X
-
-### Tehtävät
-
-* [Meet in the Middle](https://cses.fi/alon/task/1628)
-* [Reachable Nodes](https://cses.fi/alon/task/2138)
-
 ## Treap-rakenne
 
 ### Tehtävät
 
 * [Cut and Paste](https://cses.fi/alon/task/2072)
 * [Substring Reversals](https://cses.fi/alon/task/2073)
-
-## X
-
-### Tehtävät
-
-* [Necessary Roads](https://cses.fi/alon/task/2076)
-* [Necessary Cities](https://cses.fi/alon/task/2077)
