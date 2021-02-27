@@ -181,6 +181,9 @@ v.push_back({3,5});
 v.push_back({2,8});
 v.push_back({3,2});
 sort(v.begin(), v.end());
+cout << v[0].first << " " << v[0].second << "\n"; // 2 8
+cout << v[1].first << " " << v[1].second << "\n"; // 3 2
+cout << v[2].first << " " << v[2].second << "\n"; // 3 5
 ```
 
 ### Kopioiminen
