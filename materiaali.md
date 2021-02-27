@@ -789,21 +789,21 @@ Treapin sisällön voi tulkita niin, että jokaisessa solmussa vasemman alipuun 
 
 Seuraavassa on esimerkkinä treap, joka vastaa merkkijonoa SANDWICH:
 
-TODO
+![](kuvat/treap1.png)
 
 ### Operaatiot
 
 Treapin ensimmäinen operaatio on _jakaminen_. Tämä toteutetaan lähtemällä liikkeelle puun juuresta ja siirtämällä puun osia vasempaan ja oikeaan puuhun. Seuraava kuva näyttää tuloksen, kun merkkijono SANDWICH jaetaan osiin SANDW ja ICH:
 
-TODO
+![](kuvat/treap2.png)
 
 Treapin toinen operaatio on _yhdistäminen_. Tämä tarkoittaa, että kaksi treapia liitetään peräkkäin. Voimme esimerkiksi yhdistää äsken saamamme osat toisin päin, eli ensin ICH ja sitten SANDW:
 
-TODO
+![](kuvat/treap3.png)
 
 Yhdistämisessä muodostamme uuden treapin, johon valitaan osia vasemmasta ja oikeasta treapista solmujen painojen perusteella. Esimerkissämme tuloksena on seuraava treap:
 
-TODO
+![](kuvat/treap4.png)
 
 Treapin tehokkuus perustuu siihen, että jokaisessa solmussa on satunnainen paino. Tämän ansiosta kun jakaminen ja yhdistäminen toteutetaan painoehdon mukaisesti, operaatiot vievät aikaa vain `O(log n)`.
 
