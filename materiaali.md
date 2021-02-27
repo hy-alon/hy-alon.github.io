@@ -195,10 +195,6 @@ Voit nyt ratkoa seuraavat tehtävät:
 * [Two Sets II](https://cses.fi/alon/task/1093)
 * [Rectangle Cutting](https://cses.fi/alon/task/1744)
 
-## Verkkojen käsittely
-
-## Nopea eteneminen
-
 ## Pienin muutos
 
 Annettuna on `n` lukua `a[0]`, `a[1]`, ..., `a[n-1]` ja tehtävänä on löytää luku `x`, joka minimoi summan `abs(a[0]-x)+abs(a[1]-x)+...+abs(a[n-1]-x)` (tässä `abs` tarkoittaa itseisarvoa).
@@ -220,6 +216,12 @@ Tämä algoritmi toimii lineaarisessa ajassa, koska jokainen kohta lisätään p
 Voit nyt ratkoa seuraavan tehtävän:
 
 * [Nearest Smaller Values](https://cses.fi/alon/task/1645)
+
+## Policy-based rakenne
+
+Voit nyt ratkoa seuraavan tehtävän:
+
+* [Josephus Problem II](https://cses.fi/alon/task/2163)
 
 ## Binäärihaku
 
@@ -255,13 +257,16 @@ Voit nyt ratkoa seuraavat tehtävät:
 * [Factory Machines](https://cses.fi/alon/task/1620)
 * [Array Division](https://cses.fi/alon/task/1085)
 
-## Policy-based rakenne
+## Verkkojen käsittely
 
-Voit nyt ratkoa seuraavan tehtävän:
+Voit nyt ratkoa seuraavat tehtävät:
 
-* [Josephus Problem II](https://cses.fi/alon/task/2163)
-
-## Eulerin polku
+* [Building Roads](https://cses.fi/alon/task/1666)
+* [Flight Discount](https://cses.fi/alon/task/1195)
+* [Investigation](https://cses.fi/alon/task/1202)
+* [Mail Delivery](https://cses.fi/alon/task/1691)
+* [Planets Queries I](https://cses.fi/alon/task/1750)
+* [Planets Queries II](https://cses.fi/alon/task/1160)
 
 ## Segmenttipuu
 
