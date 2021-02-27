@@ -261,16 +261,132 @@ Muutoskohdan etsimisestä on hyötyä, koska monen ongelman voi esittää muodos
 
 ## Segmenttipuu
 
+Segmenttipuu on tietorakenne, jonka avulla voi toteuttaa tehokkaita välikyselyitä taulukkoon. Tavallisia välikyselyitä ovat välin summan laskeminen sekä välin pienimmän/suurimman alkion etsiminen.
+
+### Esimerkki
+
+Tarkastellaan esimerkkinä tilannetta, jossa haluamme tehdä välikyselyitä, joissa lasketaan taulukon alkioiden summa tietyllä välillä.
+
+Segmenttipuu on mukavinta toteuttaa niin, että taulukon koko on 2:n potenssi. Taulukon loppuun voi tarvittaessa lisätä ylimääräisiä alkioita, jotta tämä toteutuu.
+
+Seuraava segmenttipuu vastaa taulukkoa `[5,8,6,3,2,7,2,6]`:
+
+TODO
+
+Puun lehtinä ovat taulukon alkiot ja muilla tasoilla jokaisessa solmussa on kahden alemman tason solmun summa.
+
+### Puun tallentaminen
+
+Segmenttipuu tallennetaan taulukkona, jossa on `2n` alkiota, kun `n` on alkuperäisen taulukon koko. Kohdassa 1 on puun juuren alkio, kohdissa 2 ja 3 ovat seuraavan tason alkiot, jne. Alkuperäisen taulukon sisältö alkaa kohdasta `n`.
+
+Esimerkin taulukkoa vastaa seuraava segmenttipuu:
+
+```
+int tree[] = {0,39,22,17,13,9,9,8,5,8,6,3,2,7,2,6};
+```
+
+Huomaa, että taulukon kohta 0 ei ole käytössä segmenttipuussa.
+
+Tässä tallennustavassa kohdassa `k` olevan solmun vasen lapsi on kohdassa `2k`, oikea lapsi on kohdassa `2k+1` ja vanhempi on kohdassa `k/2` (pyöristys alaspäin kokonaisluvuksi). Tämä on sama tallennustapa kuin binäärikeossa käytetty.
+
+### Alkion muuttaminen
+
+Kun taulukon alkio muuttuu, tämän tulee heijastua kaikkiin puun solmuihin, jotka ovat polulla juuresta alkioon. Esimerkiksi seuraavassa kuvassa alkion 7 muuttuminen vaikuttaa kaikkiin harmaisiin solmuihin:
+
+TODO
+
+Seuraava koodi toteuttaa alkion muuttamisen:
+
+```cpp
+// muuta kohdan k arvoksi x
+void change(int k, int x) {
+    k += n;
+    tree[k] = x;
+    for (k /= 2; k >= 1; k /= 2) {
+        tree[k] = tree[2*k]+tree[2*k+1];
+    }
+}
+```
+
+Koodi vie aikaa `O(log n)`, koska puussa on logaritminen määrä tasoja.
+
+### Välikysely
+
+Välikyselyssä väli muodostetaan mahdollisimman korkealla puussa olevista solmuista. Esimerkiksi kun haluamme laskea välin `[6,3,2,7,2,6]` summan, saamme sen kahdesta ylemmästä solmusta laskemalla `9+17=26`:
+
+TODO
+
+Seuraava koodi laskee summan annetun välin alkioiden summan:
+
+```cpp
+// laske välin a...b alkioiden summa
+int getSum(int a, int b) {
+    a += n; b += n;
+    int s = 0;
+    while (a <= b) {
+        if (a%2 == 1) s += tree[a++];
+        if (b%2 == 0) s += tree[b--];
+        a /= 2; b /= 2;
+    }
+    return s;
+}
+```
+
+Koodi käy läpi puun tasoja pohjalta alkaen ja lisää vasemman ja oikean alkion summaan, jos ylemmän tason solmu on välin ulkopuolella. Koodi vie aikaa `O(log n)`, koska tasojen määrä on logaritminen.
+
+### Muut kyselyt
+
+Segmenttipuun avulla voi toteuttaa tehokkaasti minkä tahansa kyselyn, jossa kyselyn vastauksen voi laskea jakamalla välin kahteen osaan ja yhdistämällä kummankin osan kyselyjen vastaukset.
+
+Esimerkiksi seuraavan segmenttipuun avulla voi etsiä välin pienimmän alkion. Ideana on, että jokaisessa solmussa on minimi sen kahden lapsen arvoista.
+
+TODO
+
+Tällaista puuta voi käsitellä näillä funktioilla:
+
+```cpp
+// muuta kohdan k arvoksi x
+void change(int k, int x) {
+    k += n;
+    tree[k] = x;
+    for (k /= 2; k >= 1; k /= 2) {
+        tree[k] = min(tree[2*k],tree[2*k+1]);
+    }
+}
+
+// etsi välin a...b pienin alkio
+int getMin(int a, int b) {
+    a += n; b += n;
+    int x = tree[a];
+    while (a <= b) {
+        if (a%2 == 1) x = min(x,tree[a++]);
+        if (b%2 == 0) x = min(x,tree[b--]);
+        a /= 2; b /= 2;
+    }
+    return x;
+}
+```
+
+### Binäärihaku puussa
+
+Segmenttipuuta voi myös käsitellä binäärihaun tyylisesti aloittamalla haku puun juuresta ja liikkumalla joka askeleella alaspäin vasemmalle tai oikealle.
+
+Seuraava kuva näyttää esimerkin, kuinka äskeisestä puusta voi löytää tehokkaasti pienimmän alkion:
+
+TODO
+
+Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo on bitti 0 tai 1, ja etsiä summien avulla, missä on `k`:nnes bitti 1.
+
 ### Tehtävät
 
 * [Dynamic Range Sum Queries](https://cses.fi/alon/task/1648)
 * [Dynamic Range Minimum Queries](https://cses.fi/alon/task/1649)
-* [Range Update Queries](https://cses.fi/alon/task/1651)
 * [Hotel Queries](https://cses.fi/alon/task/1143)
 * [List Removals](https://cses.fi/alon/task/1749)
+* [Increasing Subsequence](https://cses.fi/alon/task/1145)
+* [Range Update Queries](https://cses.fi/alon/task/1651)
 * [Nested Ranges Count](https://cses.fi/alon/task/2169)
 * [Distinct Values Queries](https://cses.fi/alon/task/1734)
-* [Increasing Subsequence](https://cses.fi/alon/task/1145)
 
 ## Puiden käsittely
 
