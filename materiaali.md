@@ -783,6 +783,116 @@ TODO
 
 ## Treap-rakenne
 
+Treap on binääripuu, jonka avulla voi toteuttaa merkkijonon tai taulukon, jonka osia pystyy siirtelemään tehokkaasti. Jokaisessa puun solmussa on kaksi arvoa: paino ja sisältö. Jokaisen solmu paino on satunnainen ja sisältö kuvaa taulukon alkiota. Ehtona on, että jokaisessa kohdassa solmu on painavampi tai yhtä painava kuin sen vanhempi.
+
+Treapin sisällön voi tulkita niin, että jokaisessa solmussa vasemman alipuun solmut ovat järjestyksessä ennen solmua ja oikean alipuun solmut ovat järjestyksessä solmun jälkeen. Tällä tavalla voimme tallentaa merkkijonon tai taulukon sisällön treapiin.
+
+Seuraavassa on esimerkkinä treap, joka vastaa merkkijonoa SANDWICH:
+
+TODO
+
+### Operaatiot
+
+Treapin ensimmäinen operaatio on _jakaminen_. Tämä toteutetaan lähtemällä liikkeelle puun juuresta ja siirtämällä puun osia vasempaan ja oikeaan puuhun. Seuraava kuva näyttää tuloksen, kun merkkijono SANDWICH jaetaan osiin SANDW ja ICH:
+
+TODO
+
+Treapin toinen operaatio on _yhdistäminen_. Tämä tarkoittaa, että kaksi treapia liitetään peräkkäin. Voimme esimerkiksi yhdistää äsken saamamme osat toisin päin, eli ensin ICH ja sitten SANDW:
+
+TODO
+
+Yhdistämisessä muodostamme uuden treapin, johon valitaan osia vasemmasta ja oikeasta treapista solmujen painojen perusteella. Esimerkissämme tuloksena on seuraava treap:
+
+TODO
+
+Treapin tehokkuus perustuu siihen, että jokaisessa solmussa on satunnainen paino. Tämän ansiosta kun jakaminen ja yhdistäminen toteutetaan painoehdon mukaisesti, operaatiot vievät aikaa vain `O(log n)`.
+
+Treapin perustoteutukseen on mahdollista yhdistää monia lisäominaisuuksia. Esimerkiksi treapia voi laajentaa niin, että sen pystyy kääntämään tehokkaasti, lisäämällä joka solmuun kentän, joka kertoo, onko vastaava alipuu käännetty. Lisäksi solmuihin voi toteuttaa kaikenlaista laskentaa segmenttipuun tapaisesti.
+
+### Toteutus
+
+Kuinka treap kannattaisi sitten toteuttaa? Tämä on melko mutkikasta, mutta seuraava koodi antaa hyvän pohjan:
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+struct node {
+    node *left, *right;
+    int weight, size, value;
+    node (int v) {
+        left = right = NULL;
+        weight = rand();
+        size = 1;
+        value = v;
+    }
+};
+
+int size(node *treap) {
+    if (treap == NULL) return 0;
+    return treap->size;
+}
+
+void split(node *treap, node *&left, node *&right, int k) {
+    if (treap == NULL) {
+        left = right = NULL;
+    } else {
+        if (size(treap->left) < k) {
+            split(treap->right, treap->right, right, k-size(treap->left)-1);
+            left = treap;
+        } else {
+            split(treap->left, left, treap->left, k);
+            right = treap;
+        }
+        treap->size = size(treap->left)+size(treap->right)+1;
+    }
+}
+
+void merge(node *&treap, node *left, node *right) {
+    if (left == NULL) treap = right;
+    else if (right == NULL) treap = left;
+    else {
+        if (left->weight < right->weight) {
+            merge(left->right, left->right, right);
+            treap = left;
+        } else {
+            merge(right->left, left, right->left);
+            treap = right;
+        }
+        treap->size = size(treap->left)+size(treap->right)+1;
+    }
+}
+
+void print(node *treap) {
+    if (treap == NULL) return;
+    print(treap->left);
+    cout << treap->value << " ";
+    print(treap->right);
+}
+
+int main() {
+    // luo treap taulukolle [1,2,3,4,5,6,7,8]
+    node *treap = NULL;
+    merge(treap,treap,new node(1));
+    merge(treap,treap,new node(2));
+    merge(treap,treap,new node(3));
+    merge(treap,treap,new node(4));
+    merge(treap,treap,new node(5));
+    merge(treap,treap,new node(6));
+    merge(treap,treap,new node(7));
+    merge(treap,treap,new node(8));
+    print(treap);
+    cout << "\n";
+    // jaa taulukko osiin [1,2,3,4] ja [5,6,7,8] ja yhdistä ne uudestaan taulukoksi [5,6,7,8,1,2,3,4]
+    node *left, *right;
+    split(treap,left,right,4);
+    merge(treap,right,left);
+    print(treap);
+    cout << "\n";
+}
+```
+
 ### Tehtävät
 
 * [Cut and Paste](https://cses.fi/alon/task/2072)
