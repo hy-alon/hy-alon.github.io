@@ -390,6 +390,110 @@ Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo 
 
 ## Puiden käsittely
 
+Puu on yhtenäinen ja syklitön verkko, jossa on `n` solmua ja `n-1` kaarta. Puussa jokaisen kahden solmun välillä on yksikäsitteinen polku.
+
+### Esimerkki
+
+Tässä on esimerkkinä puu, jossa on 6 solmua ja 5 kaarta:
+
+TODO
+
+Yleensä hyvä tapa tallentaa puu on vieruslistaesitys luomalla taulukko, jossa on vektoreita. Esimerkiksi voimme tallentaa yllä olevan puun näin:
+
+```cpp
+vector<int> tree[7];
+tree[1].push_back(2);
+tree[1].push_back(3);
+tree[1].push_back(4);
+tree[2].push_back(1);
+tree[2].push_back(5);
+tree[2].push_back(6);
+tree[3].push_back(1);
+tree[4].push_back(1);
+tree[5].push_back(2);
+tree[6].push_back(2);
+```
+
+### Juurtaminen
+
+Puun käsittelyä helpottaa usein, jos valitsemme yhden sen solmuista juureksi. Tyypillisesti valitsemme juureksi solmun 1.
+
+Esimerkiksi äskeinen puumme näyttää juurrettuna tältä:
+
+TODO
+
+Tämän jälkeen puun solmut asettuvat tasoittain juuren alapuolelle, ja jokaisesta solmusta alkaa alipuu, jonka juurena se on.
+
+### Läpikäynti
+
+Voimme käydä läpi kaikki puun solmut juuresta alkaen syvyyshaulla. Esimerkiksi seuraava funktio tulostaa kaikki puun solmut:
+
+```cpp
+void dfs(int node, int prev) {
+    cout << "solmu " << node << "\n";
+    for (auto next : tree[node]) {
+        if (next == prev) continue;
+        dfs(next,node);
+    }
+}
+```
+
+Tulostaminen alkaa kutsumalla funktiota `dfs(1,0)`. Parametri `node` on nykyinen solmu ja parametri `prev` on edellinen solmu. Läpikäynti etenee kaikkiin solmuihin edellistä solmua lukuun ottamatta. Tässä tapauksessa solmut tulostetaan järjestyksessä 1, 2, 5, 6, 3, 4.
+
+### Dynaaminen ohjelmointi
+
+Voimme laskea läpikäynnin yhteydessä puun solmuihin tietoa dynaamisella ohjelmoinnilla. Esimerkiksi seuraava koodi luo taulukon `count`, joka kertoo jokaiselle solmulle, montako solmua sen alipuussa on:
+
+```cpp
+void dfs(int node, int prev) {
+    count[node] = 1;
+    for (auto next : tree[node]) {
+        if (next == prev) continue;
+        dfs(next,node);
+        count[node] += count[next];
+    }
+}
+```
+
+Seuraava koodi puolestaan laskee jokaisesta solmusta taulukkoon `length`, kuinka pitkä on pisin solmusta alaspäin lähtevä polku:
+
+```cpp
+void dfs(int node, int prev) {
+    length[node] = 0;
+    for (auto next : tree[node]) {
+        if (next == prev) continue;
+        dfs(next,node);
+        length[node] = max(length[node],length[next]+1);
+    }
+}
+```
+
+### Esivanhemman etsiminen
+
+Tavallinen kysely puussa on selvittää solmun esivanhempi, johon pääsee kulkemalla tasoja ylöspäin puussa. Merkitään `f(x,k)` solmun `x` esivanhempaa `k` tasoa ylempänä. Esimerkiksi seuraavassa kuvassa `f(2,1)=1` ja `f(8,2)=4`.
+
+TODO
+
+Voimme vastata tällaisiin kyselyihin tehokkaasti `O(log n)`-ajassa hyppytaulukon avulla. Esikäsittely vie aikaa `O(n log n)`.
+
+### Alin yhteinen esivanhempi
+
+Solmujen `a` ja `b` alin yhteinen esivanhempi on alin puun solmu, joka on kummankin solmun esivanhempi. Esimerkiksi seuraavassa kuvassa solmujen 5 ja 8 alin yhteinen esivanhempi on solmu 2.
+
+TODO
+
+Pystymme selvittämään alimman yhteisen esivanhemman tehokkaasti kahdessa vaiheessa. Ensin nostamme alemman tason solmua ylöspäin niin, että molemmat solmut ovat samalla tasolla. Tämän jälkeen nostamme solmuja yhtä aikaa ylöspäin, kunnes ne törmäävät. Molemmat vaiheet onnistuvat ajassa `O(log n)` hyppytaulukon avulla.
+
+### Etäisyydet puussa
+
+Kun meillä on keino selvittää tehokkaasti kahden solmun alin yhteinen esivanhempi, voimme myös laskea tehokkaasti kahden solmun etäisyyden eli niiden välillä olevan polun pituuden.
+
+Oletetaan, että solmut ovat `a` ja `b` ja niiden alin yhteinen esivanhempi on `c`. Merkitään lisäksi `d(x)` solmun `x` syvyyttä. Voimme laskea näiden tietojen perusteella solmujen `a` ja `b` etäisyyden kaavalla `d(a)+d(b)-2*d(c)`.
+
+### Keskussolmut
+
+TODO
+
 ### Tehtävät
 
 * [Tree Diameter](https://cses.fi/alon/task/1131)
