@@ -73,117 +73,333 @@ aybabtu
 * [Two Sets](https://cses.fi/alon/task/1092)
 * [Collecting Numbers](https://cses.fi/alon/task/2216)
 
-## Tietorakenteet
+## Vektori ja järjestäminen
 
-C++:n tärkeä tietorakenne on `vector` eli taulukkolista, jossa on tehokasta lisätä alkio loppuun tai poistaa alkio lopusta. Vektorin käyttämiseksi koodin alussa tulee olla rivi `#include <vector>`. Seuraava koodi esittelee vektorin käyttämistä:
+C++:n standardikirjasto sisältää monia valmiita tietorakenteita ja algoritmeja. Näistä usein tarvittavia ovat `vector` (muuttuvan kokoinen taulukko) sekä `sort` (tehokas järjestäminen).
+
+### Vektorin luominen
+
+Vektorin käyttäminen vaatii, että koodin alussa on rivi `#include <vector>`. Esimerkiksi seuraava koodi luo vektorin `c`, jonka alkiot ovat `int`-lukuja, ja lisää siihen kolme alkiota:
 
 ```cpp
 vector<int> v;
-v.push_back(5);
+v.push_back(1);
 v.push_back(2);
-v.push_back(8);
+v.push_back(3);
+```
 
+Vektorin voi myös luoda antamalla suoraan sen sisällön:
+
+```cpp
+vector<int> v = {1,2,3};
+```
+
+Funktio `size` kertoo, montako alkiota vektorissa on:
+
+```cpp
 cout << v.size() << "\n"; // 3
+```
 
+Vektorin sisältöä voi käsitellä samalla syntaksilla kuin taulukkoa. Esimerkiksi seuraava koodi muuttaa vektorin ensimmäistä alkiota:
+
+```cpp
+vector<int> v = {1,2,3};
+cout << v[0] << "\n"; // 1
+v[0] = 5;
 cout << v[0] << "\n"; // 5
-cout << v[1] << "\n"; // 2
-cout << v[2] << "\n"; // 8
+```
 
+### Vektorin läpikäynti
+
+Vektorin alkiot voi tulostaa for-silmukalla näin:
+
+```cpp
+vector<int> v = {1,2,3};
+for (int i = 0; i < v.size(); i++) {
+    cout << v[i] << " ";
+}
+cout << "\n";
+```
+
+Vastaavan koodin voi toteuttaa myös näin lyhyemmin:
+
+```cpp
+vector<int> v = {1,2,3};
+for (auto x : v) {
+    cout << x << " ";
+}
+cout << "\n";
+```
+
+### Järjestäminen
+
+Järjestämisen käyttäminen vaatii, että koodin alussa on rivi `#include <algorithm>`. Seuraava koodi luo vektorin ja järjestää sitten sen sisällön:
+
+```cpp
+vector<int> v = {4,2,5,1,3};
 sort(v.begin(), v.end());
-
-cout << v[0] << "\n"; // 2
-cout << v[1] << "\n"; // 5
-cout << v[2] << "\n"; // 8
+// v = {1,2,3,4,5}
 ```
 
-Tietorakenne `pair` eli pari mahdollistaa kahden alkion tallentamisen. Kun vektorissa on pareja, sen sisältö järjestetään ensisijaisesti parin ensimmäisen alkion mukaan ja toissijaisesti toisen alkion mukaan:
+Tässä `begin` ja `end` viittaavat vektorin alkuun ja loppuun. Järjestyksen saa käänteiseksi näin:
 
+```cpp
+vector<int> v = {4,2,5,1,3};
+sort(v.rbegin(), v.rend());
 ```
-vector<pair<int,int>> v;
-v.push_back({5,1});
-v.push_back({1,5});
-v.push_back({1,2});
-v.push_back({4,3});
 
-sort(v.begin(),v.end());
+Funktiota `sort` voi käyttää muissakin yhteyksissä. Esimerkiksi merkkijonon voi järjestää näin:
 
+```cpp
+string s = "apina";
+sort(s.begin(), s.end());
+```
+
+### Parit
+
+Parin avulla voi tallentaa kaksi tietoa yhtenä alkiona. Esimerkiksi seuraava koodi luo vektorin, jossa on pareja:
+
+```cpp
+vector<pair<int,string>> v;
+v.push_back({1,"apina"});
+v.push_back({2,"banaani"});
+v.push_back({3,"cembalo"});
+```
+
+Tässä tapauksessa parin ensimmäinen jäsen on `int`-luku ja toinen jäsen on merkkijono. Parin jäseniä voi käsitellä kenttien `first` ja `second` avulla:
+
+```cpp
 cout << v[0].first << "\n"; // 1
-cout << v[0].second << "\n"; // 2
-cout << v[1].first << "\n"; // 1
-cout << v[1].second << "\n"; // 5
-cout << v[2].first << "\n"; // 4
-cout << v[2].second << "\n"; // 3
-cout << v[3].first << "\n"; // 5
-cout << v[3].second << "\n"; // 1
+cout << v[0].second << "\n"; // apina
 ```
 
-Tietorakenne `set` on tasapainoiseen binääripuuhun perustuva joukkorakenne. Siinä alkion lisäys, poisto ja haku toimivat tehokkaasti logaritmisessa ajassa. Koska sama alkio voi esiintyä joukossa enintään kerran, funktio `count` palauttaa aina arvon 0 (alkio ei ole joukossa) tai 1 (alkio on joukossa).
+Kun vektorissa on pareja, ne järjestyvät ensisijaisesti ensimmäisen jäsenen mukaan ja toissijaisesti toisen jäsenen mukaan. Seuraava esimerkki esittelee tätä:
+
+```cpp
+vector<pair<int,int>> v;
+v.push_back({3,5});
+v.push_back({2,8});
+v.push_back({3,2});
+sort(v.begin(), v.end());
+```
+
+### Kopioiminen
+
+Tärkeä ero C++:n ja monen muun kielen välillä on, että C++:ssa sijoitus kopioi tietorakenteen sisällön, kun taas muissa kielissä kopioidaan vain viite. Seuraava koodi esittelee tätä:
+
+```cpp
+vector<int> a, b;
+a.push_back(1);
+a.push_back(2);
+a.push_back(3);
+b = a;
+b[0] = 5;
+cout << a[0] << "\n"; // 1
+```
+
+Koska sijoitus kopioi sisällön, vektorin `b` ensimmäisen alkion muuttaminen ei vaikuta vektoriin `a` vaan tietorakenteet ovat erilliset.
+
+### Tehtävät
+
+* [Movie Festival](https://cses.fi/alon/task/1629)
+* [Missing Coin Sum](https://cses.fi/alon/task/2183)
+* [Josephus Problem I](https://cses.fi/alon/task/2162)
+
+## Lisää tietorakenteita
+
+C++:n standardikirjasto sisältää valmiita toteutuksia tutuista tietorakenteista, samaan tapaan kuin muissa kielissä. Saatavilla on joukkoja ja hakemistoja, jotka perustuvat puu- ja hajautusrakenteisiin.
+
+### Joukko
+
+C++:n `set`-rakenne perustuu tasapainoiseen binäärihakupuuhun, ja sen operaatiot toimivat `O(log n)`-ajassa. Joukon käyttäminen vaatii, että koodin alussa on rivi `#include <set>`.
+
+Seuraava koodi luo joukon, lisää siihen luvut 3, 7 ja 5 funktiolla `insert` ja hakee sitten alkioiden määrän funktiolla `size`.
 
 ```cpp
 set<int> s;
-s.insert(5);
-s.insert(2);
-s.insert(8);
 s.insert(3);
+s.insert(7);
+s.insert(5);
+cout << s.size() << "\n"; // 3
+```
 
-cout << s.count(3) << "\n"; // 1
+Funktio `count` kertoo, onko joukossa tiettyä alkiota. Koska tietty alkio voi esiintyä vain kerran joukossa, funktio palauttaa aina 0 tai 1.
+
+```cpp
+cout << s.count(5) << "\n"; // 1
+cout << s.count(6) << "\n"; // 0
+```
+
+Funktio `erase` poistaa alkion joukosta:
+
+```cpp
+s.insert(4);
+cout << s.count(4) << "\n"; // 1
+s.erase(4);
 cout << s.count(4) << "\n"; // 0
-
-s.erase(3);
-
-cout << s.count(3) << "\n"; // 1
 ```
 
-Joukkoa on usein kätevää käsitellä iteraattorin avulla. Iteraattori on erityinen muuttuja, joka osoittaa tiettyyn joukon alkioon. Se toimii melko samalla tavalla kuin osoitin.
+### Hakemisto
 
-Funktio `begin` antaa iteraattorin joukon ensimmäiseen alkioon ja funktio `end` antaa iteraattorin joukon viimeisen alkion _jälkeiseen_ kohtaan. Koska binääripuun sisältö on järjestyksessä, tämän avulla voidaan selvittää joukon pienin ja suurin alkio. Huomaa, että jälkimmäisessä tapauksessa iteraattorin kohtaa täytyy vähentää yhdellä, jotta päästään viimeiseen alkioon.
+Hakemisto on taulukon yleistys, joka sisältää joukon avain-arvo-pareja. C++:n `map`-rakenne perustuu tasapainoiseen binäärihakupuuhun, ja sen operaatiot toimivat `O(log n)`-ajassa. Hakemiston käyttäminen vaatii, että koodin alussa on rivi `#include <map>`.
 
-Funktio `lower_bound` antaa iteraattorin pienimpään alkioon, joka on yhtä suuri tai suurempi kuin annettu alkio. Funktio `upper_bound` puolestaan antaa iteraattorin alkioon, joka on suurempi kuin annettu alkio. Jos alkiota ei ole olemassa, iteraattori osoittaa viimeisen alkion jälkeiseen alkioon.
+Esimerkiksi seuraava koodi luo hakemiston, jossa avaimet ovat merkkijonoja ja arvot ovat kokonaislukuja:
+
+```cpp
+map<string,int> x;
+x["apina"] = 1;
+x["banaani"] = 2;
+x["cembalo"] = 3;
+cout << x["banaani"] << "\n"; // 2
+```
+
+Jos haettua avainta ei ole hakemistossa, sen oletusarvona on 0 tai tyhjä:
+
+```cpp
+map<string,int> x;
+cout << x["aybabtu"] << "\n"; // 0
+```
+
+Huomaa, että yllä oleva koodi myös lisää avaimen hakemistoon oletusarvolla.
+
+### Prioriteettijono
+
+Prioriteettijonoon voi lisätä alkioita sekä hakea ja poistaa pienimmän tai suurimman alkion. C++:n `priority_queue` rakenne toteuttaa prioriteettijonon, jossa voi oletuksena hakea ja poistaa suurimman alkion. Prioriteettijonon käyttäminen vaatii, että koodin alussa on rivi `#include <queue>`.
+
+Seuraava koodi esittelee prioriteettijonon operaatioita:
+
+```cpp
+priority_queue<int> q;
+q.push(3);
+q.push(7);
+q.push(5);
+cout << q.top() << "\n"; // 7
+q.pop();
+cout << q.top() << "\n"; // 5
+```
+
+Huomaa, että C++:n prioriteettijono antaa oletuksena suurimman alkion, toisin kuin joissain kielissä.
+
+### Iteraattorit
+
+Iteraattori on muuttuja, joka osoittaa tietorakenteen alkioon. Iteraattori `begin` osoittaa ensimmäiseen alkioon ja iteraattori `end` osoittaa viimeisen alkion _jälkeiseen_ alkioon. Iteraattorin osoittamaan alkioon pääsee käsiksi `*`-merkinnällä, ja iteraattoria pystyy siirtämään operaatioilla `++` ja `--`.
+
+Esimerkiksi seuraava koodi tulostaa kaikki joukon alkiot iteraattorin avulla. Koska joukko säilyttää järjestyksen, alkiot käydään läpi pienimmästä suurimpaan.
+
+```cpp
+set<int> s = {2,3,5,7};
+auto it = s.begin();
+while (it != s.end()) {
+    cout << *it << "\n";
+    it++;
+}
+```
+
+Tämä koodi tulostaa joukon pienimmän ja suurimman alkion:
+
+```cpp
+set<int> s = {2,3,5,7};
+auto it1 = s.begin();
+auto it2 = s.end(); it2--;
+cout << *it1 << " " << *it2 << "\n"; // 2 7
+```
+
+Funktio `find` antaa iteraattorin tiettyyn alkioon. Funktio `lower_bound` antaa iteraattorin pienimpään alkioon, joka on ainakin yhtä suuri kuin annettu alkio. Funktio `upper_bound` antaa iteraattorin pienimpään alkioon, joka on suurempi kuin annettu alkio. Jos alkiota ei ole olemassa, nämä funktiot antavat tuloksena iteraattorin `end`.
+
+Seuraava koodi etsii iteraattoriin alkioon 5:
+
+```cpp
+auto it = s.find(5);
+if (it == s.end()) {
+    // alkiota ei löytynyt
+}
+```
+
+Seuraava koodi tulostaa pienimmän alkion, joka on ainakin yhtä suuri kuin 5, sekä pienimmän alkion, joka on suurempi kuin 5:
+
+```cpp
+set<int> s = {2,3,5,7};
+cout << *s.lower_bound(5) << "\n"; // 5
+cout << *s.upper_bound(5) << "\n"; // 7
+```
+
+### Toistot joukossa
+
+Joukkoon `set` ei voi lisätä samaa alkiota monta kertaa:
 
 ```cpp
 set<int> s;
 s.insert(5);
-s.insert(2);
-s.insert(8);
-s.insert(3);
-
-auto it1 = s.begin();
-cout << *it1 << "\n"; // 2
-auto it2 = s.end();
-it2--;
-cout << *it2 << "\n"; // 8
-
-auto it3 = s.lower_bound(3);
-cout << *it3 << "\n"; // 3
-auto it4 = s.upper_bound(3);
-cout << *it4 << "\n"; // 5
+s.insert(5);
+s.insert(5);
+cout << s.count(5) << "\n"; // 1
 ```
 
-Tietorakenne `map` on avain-arvo-rakenne, joka perustuu myös tasapainoiseen binääripuuhun. Sitä voidaan käyttää seuraavasti:
+Tämä on kuitenkin mahdollista joukossa `multiset`, joka on muuten kuin `set`, mutta sallii toistuvat alkiot:
 
 ```cpp
-map<string,int> m;
-m["apina"] = 1;
-m["banaani"] = 2;
-m["cembalo"] = 3;
-
-cout << m["banaani"] << "\n"; // 1
-cout << m["gorilla"] << "\n"; // 0
+multiset<int> s;
+s.insert(5);
+s.insert(5);
+s.insert(5);
+cout << s.count(5) << "\n"; // 3
 ```
 
-Huomaa, että kun haettu alkio puuttuu, se lisätään mukaan automaattisesti oletusarvolla. Tämän takia yllä olevassa koodissa haku avaimella "gorilla" tuottaa arvon 0.
+Huomaa, että `multiset`-rakenteessa funktio `count` vie aikaa `O(log n + k)`, missä `k` on toistojen määrä.
 
-Muita käteviä C++:n tietorakenteita ovat `deque` eli taulukkolista, jota pystyy muokkaamaan tehokkaasti sekä alusta että lopusta, sekä `multiset` eli joukkorakenne, jossa sama alkio voi esiintyä useammin kuin yhden kerran.
+Funktio `erase` poistaa alkion _kaikki_ esiintymät joukosta:
+
+```cpp
+multiset<int> s;
+s.insert(5);
+s.insert(5);
+s.insert(5);
+cout << s.count(5); << "\n"; // 3
+s.erase(5);
+cout << s.count(5); << "\n"; // 0
+```
+
+Yksittäisen esiintymän pystyy kuitenkin poistamaan näin:
+
+```cpp
+multiset<int> s;
+s.insert(5);
+s.insert(5);
+s.insert(5);
+cout << s.count(5); << "\n"; // 3
+s.erase(s.find(5));
+cout << s.count(5); << "\n"; // 2
+```
+
+Tällöin poistettavaksi annetaan alkion asemesta iteraattori alkioon.
+
+### Parit joukossa
+
+Joskus on kätevää luoda joukko, jonka alkiot ovat pareja. Esimerkiksi seuraava koodi tekee näin:
+
+```cpp
+set<pair<int,int>> s;
+s.insert({3,5});
+s.insert({6,1});
+s.insert({3,4});
+```
+
+Tällöin parit ovat järjestyksessä joukossa ensisijaisesti ensimmäisen jäsenen ja toissijaisesti toisen jäsenen mukaan:
+
+```cpp
+auto it = s.lower_bound({4,2});
+cout << it->first << " " << it->second << "\n"; // 6 1
+```
+### Policy-based rakenne
+
+TODO
 
 ### Tehtävät
 
 * [Concert Tickets](https://cses.fi/alon/task/1091)
-* [Movie Festival](https://cses.fi/alon/task/1629)
-* [Missing Coin Sum](https://cses.fi/alon/task/2183)
 * [Room Allocation](https://cses.fi/alon/task/1164)
-* [Josephus Problem I](https://cses.fi/alon/task/2162)
-* [Josephus Problem II](https://cses.fi/alon/task/2163)
 * [Subarray Distinct Values](https://cses.fi/alon/task/2162)
+* [Josephus Problem II](https://cses.fi/alon/task/2163)
 
 ## Dynaaminen ohjelmointi
 
