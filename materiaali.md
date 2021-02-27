@@ -271,7 +271,7 @@ Segmenttipuu on mukavinta toteuttaa niin, että taulukon koko on 2:n potenssi. T
 
 Seuraava segmenttipuu vastaa taulukkoa `[5,8,6,3,2,7,2,6]`:
 
-TODO
+![](kuvat/segpuu1.png)
 
 Puun lehtinä ovat taulukon alkiot ja muilla tasoilla jokaisessa solmussa on kahden alemman tason solmun summa.
 
@@ -293,7 +293,7 @@ Tässä tallennustavassa kohdassa `k` olevan solmun vasen lapsi on kohdassa `2k`
 
 Kun taulukon alkio muuttuu, tämän tulee heijastua kaikkiin puun solmuihin, jotka ovat polulla juuresta alkioon. Esimerkiksi seuraavassa kuvassa alkion 7 muuttuminen vaikuttaa kaikkiin harmaisiin solmuihin:
 
-TODO
+![](kuvat/segpuu3.png)
 
 Seuraava koodi toteuttaa alkion muuttamisen:
 
@@ -314,7 +314,7 @@ Koodi vie aikaa `O(log n)`, koska puussa on logaritminen määrä tasoja.
 
 Välikyselyssä väli muodostetaan mahdollisimman korkealla puussa olevista solmuista. Esimerkiksi kun haluamme laskea välin `[6,3,2,7,2,6]` summan, saamme sen kahdesta ylemmästä solmusta laskemalla `9+17=26`:
 
-TODO
+![](kuvat/segpuu2.png)
 
 Seuraava koodi laskee summan annetun välin alkioiden summan:
 
@@ -340,7 +340,7 @@ Segmenttipuun avulla voi toteuttaa tehokkaasti minkä tahansa kyselyn, jossa kys
 
 Esimerkiksi seuraavan segmenttipuun avulla voi etsiä välin pienimmän alkion. Ideana on, että jokaisessa solmussa on minimi sen kahden lapsen arvoista.
 
-TODO
+![](kuvat/segpuu4.png)
 
 Tällaista puuta voi käsitellä näillä funktioilla:
 
@@ -373,7 +373,7 @@ Segmenttipuuta voi myös käsitellä binäärihaun tyylisesti aloittamalla haku 
 
 Seuraava kuva näyttää esimerkin, kuinka äskeisestä puusta voi löytää tehokkaasti pienimmän alkion:
 
-TODO
+![](kuvat/segpuu5.png)
 
 Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo on bitti 0 tai 1, ja etsiä summien avulla, missä on `k`:nnes bitti 1.
 
