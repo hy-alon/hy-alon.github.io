@@ -792,13 +792,21 @@ Myös jakolasku voidaan laskea tietyissä tapauksissa modulo `m`. Ideana on esit
 
 ### Binomikerroin
 
-Binomikerroin `ncr(n,k)` ilmaisee, monellako tavalla `n` alkion joukosta voidaan valita `k` alkion osajoukko. Esimerkiksi `ncr(5,2)=10`, koska luvuista 1..5 voidaan muodostaa osajoukot {1,2}, {1,3}, {1,4}, {1,5}, {2,3}, {2,4}, {2,5}, {3,4}, {3,5} ja {4,5}.
+Binomikerroin `ncr(n,k)` ilmaisee, monellako tavalla `n` alkion joukosta voidaan valita `k` alkion osajoukko. Esimerkiksi `ncr(5,2)=10`, koska joukosta {1,2,3,4,5} voidaan muodostaa osajoukot {1,2}, {1,3}, {1,4}, {1,5}, {2,3}, {2,4}, {2,5}, {3,4}, {3,5} ja {4,5}.
 
 Tavallinen tapa laskea binomikerroin on käyttää kaavaa `ncr(n,k) = n!/(k!*(n-k)!)`. Esimerkiksi `ncr(5,2)=5!/(2!*3!)=10`. Tämän voi laskea tehokkaasti suurillekin luvuille modulo `m`, jos lasketaan etukäteen kaikki tarvittavat kertomat.
 
 Binomikerroin on hyödyllinen työkalu kombinatoriikassa sen monien sovellusten ansiosta. Esimerkiksi `ncr(n,k)` ilmaisee, monessako `n`-pituisessa bittijonossa on tasan `k` ykkösbittiä tai montako tapaa on jakaa `k` palloa `n` laatikkoon niin, että jokaisessa laatikossa on enintään yksi pallo. Vaikeampi tehtävä on laskea, monellako tavalla pallot voidaan jakaa laatikoihin niin, että samassa laatikossa voi olla montakin palloa ja kaksi tapaa ovat erilaiset, jos jossakin laatikossa on eri määrä palloja. Vastaus tähän on `ncr(n+k-1,k)`, koska jokainen tapa voidaan esittää bittijonona, jonka pituus on `n+k-1` merkkiä ja jossa on tasan `k` ykkösbittiä. Tällainen bittijono kuvaa prosessin, jolla pallot sijoitetaan vasemmasta laatikosta aloittaen. Merkki 0 tarkoittaa "siirry seuraavaan laatikkoon oikealle" ja merkki 1 tarkoittaa "laita yksi pallo tähän laatikkoon".
 
 ### Nim-peli
+
+Nim on kahden pelaajan peli, jossa on `n` pinoa kolikoita. Pelaajat tekevät vuorotellen siirtoja ja joka siirrolla pelaajan tulee valita jokin epätyhjä pino ja poistaa siitä jokin määrä kolikoita. Peli päättyy, kun kaikki kolikot on poistettu, jolloin pelin voittaja on se, joka teki viimeisen siirron.
+
+Pelin tila voidaan esittää listana lukuja. Esimerkiksi `[4,1,8]` tarkoittaa peliä, jossa `n=3` ja pinoissa on 4, 1 ja 8 kolikkoa. Tila on voittotila, jos siitä aloittava pelaaja pystyy voittamaan pelin oikein pelaamalla, ja häviötila, jos pelaaja häviää varmasti, jos vastustaja pelaa oikein. Jokainen tila on joko voittotila tai häviötila.
+
+Osoittautuu, että tilan laatu voidaan selvittää laskemalla xor-summa kolikoiden määrästä. Jos xor-summa on 0, tila on häviötila, ja muuten tila on voittotila. Esimerkiksi pelissä `[4,1,8]` xor-summa on `4 xor 1 xor 8 = 13`, mikä tarkoittaa, että tila on voittotila. Tällöin pelaaja voi tehdä siirron, joka johtaa häviötilaan. Tässä tapauksessa sopiva siirto olisi poistaa 3 kolikkoa viimeisestä pinosta, jolloin tilaksi tulee `[4,1,5]`. Tämä on häviötila, koska `4 xor 1 xor 5 = 0`.
+
+Nimin tyylisesti voidaan pelata monia muitakin pelejä esittämällä osapelit samaan tapaan kuin kolikkopinot. Ideana on, että osapelin jokaisella tilalla on tietty luku, joka vastaa kolikoiden määrää nimin pinossa. Luku on pienin ei-negatiivinen kokonaisluku, jota ei ole millään toisella tilalla, johon pääsee kyseisestä tilasta tekemällä yhden siirron.
 
 ### Tehtävät
 
