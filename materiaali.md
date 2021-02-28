@@ -782,6 +782,14 @@ Tällainen algoritmin runko on hyödyllinen joskus muissakin tehtävissä, koska
 
 ### Modulolaskenta
 
+Merkintä `x mod m` tarkoittaa lukua `x` modulo `m` eli `x`:n jakojäännöstä `m`:llä. Esimerkiksi `8 mod 3 = 2`. Ohjelmoinnissa käytetään yleensä merkkiä `%` modulon laskemiseen.
+
+Tavallisia kaavoja ovat `(a+b) mod m = ((a mod m) + (b mod m)) mod m` ja `(a*b) mod m = ((a mod m) * (b mod m)) mod m`. Näiden avulla ohjelmoinnissa voidaan laskea usein suuri tulos modulo `m` tehokkaasti käyttäen tavallisia lukutyyppejä (kuten `int` tai `long`).
+
+Potenssi `a^b mod m` voidaan laskea tehokkaasti ottamalla huomioon kaksi tapausta. Jos `b` on parillinen, voidaan laskea ensin `x = a^(b/2) mod m` ja sitten `(x*x) mod m`, mikä puolittaa ongelman koon. Jos `b` on pariton, lasketaan vain `x = a^(b-1) mod m` ja sitten `(x*a) mod m`. Tuloksena on algoritmi, joka suorittaa yhteensä vain `O(log b)` askelta.
+
+Myös jakolasku voidaan laskea tietyissä tapauksissa modulo `m`. Ideana on esittää lasku `(a/b) mod m` muodossa `((a mod m) * inv_m(b)) mod m`, missä `inv_m` tarkoittaa käänteisalkiota modulo `m`. Jos `m` on alkuluku, tämän saa laskettua kaavalla `b^(m-2) mod m`. Esimerkiksi `(100/4) mod 13` voidaan laskea `((100 mod 13) * inv_13(4)) mod m`. Tässä `100 mod 13 = 9` ja `inv_13(4) = 4^11 mod 13 = 10`, eli tulos on `(9*10) mod 13 = 12`.
+
 ### Binomikerroin
 
 Binomikerroin `ncr(n,k)` ilmaisee, monellako tavalla `n` alkion joukosta voidaan valita `k` alkion osajoukko. Esimerkiksi `ncr(5,2)=10`, koska luvuista 1..5 voidaan muodostaa osajoukot {1,2}, {1,3}, {1,4}, {1,5}, {2,3}, {2,4}, {2,5}, {3,4}, {3,5} ja {4,5}.
