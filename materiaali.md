@@ -788,7 +788,7 @@ Tavallisia kaavoja ovat `(a+b) mod m = ((a mod m) + (b mod m)) mod m` ja `(a*b) 
 
 Potenssi `a^b mod m` voidaan laskea tehokkaasti ottamalla huomioon kaksi tapausta. Jos `b` on parillinen, voidaan laskea ensin `x = a^(b/2) mod m` ja sitten `(x*x) mod m`, mikä puolittaa ongelman koon. Jos `b` on pariton, lasketaan vain `x = a^(b-1) mod m` ja sitten `(x*a) mod m`. Tuloksena on algoritmi, joka suorittaa yhteensä vain `O(log b)` askelta.
 
-Myös jakolasku voidaan laskea tietyissä tapauksissa modulo `m`. Ideana on esittää lasku `(a/b) mod m` muodossa `((a mod m) * inv_m(b)) mod m`, missä `inv_m` tarkoittaa käänteisalkiota modulo `m`. Jos `m` on alkuluku, tämän saa laskettua kaavalla `b^(m-2) mod m`. Esimerkiksi `(100/4) mod 13` voidaan laskea `((100 mod 13) * inv_13(4)) mod m`. Tässä `100 mod 13 = 9` ja `inv_13(4) = 4^11 mod 13 = 10`, eli tulos on `(9*10) mod 13 = 12`.
+Myös jakolasku voidaan laskea tietyissä tapauksissa modulo `m`. Ideana on esittää lasku `(a/b) mod m` muodossa `((a mod m) * inv_m(b)) mod m`, missä `inv_m` tarkoittaa käänteisalkiota modulo `m`. Jos `m` on alkuluku, tämän saa laskettua kaavalla `inv_m(b) = b^(m-2) mod m`. Esimerkiksi `(100/4) mod 13` voidaan laskea `((100 mod 13) * inv_13(4)) mod m`. Tässä `100 mod 13 = 9` ja `inv_13(4) = 4^11 mod 13 = 10`, eli tulos on `(9*10) mod 13 = 12`.
 
 ### Binomikerroin
 
