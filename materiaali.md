@@ -784,13 +784,11 @@ Tällainen algoritmin runko on hyödyllinen joskus muissakin tehtävissä, koska
 
 ### Binomikerroin
 
-Binomikerroin `ncr(n,k)` ilmaisee, monellako tavalla `n` alkion joukosta voidaan valita `k` alkion joukko. Esimerkiksi `ncr(5,2)=10`, koska luvuista 1..5 voidaan muodostaa osajoukot {1,2}, {1,3}, {1,4}, {1,5}, {2,3}, {2,4}, {2,5}, {3,4}, {3,5} ja {4,5}.
+Binomikerroin `ncr(n,k)` ilmaisee, monellako tavalla `n` alkion joukosta voidaan valita `k` alkion osajoukko. Esimerkiksi `ncr(5,2)=10`, koska luvuista 1..5 voidaan muodostaa osajoukot {1,2}, {1,3}, {1,4}, {1,5}, {2,3}, {2,4}, {2,5}, {3,4}, {3,5} ja {4,5}.
 
 Tavallinen tapa laskea binomikerroin on käyttää kaavaa `ncr(n,k) = n!/(k!*(n-k)!)`. Esimerkiksi `ncr(5,2)=5!/(2!*3!)=10`. Tämän voi laskea tehokkaasti suurillekin luvuille modulo `m`, jos lasketaan etukäteen kaikki tarvittavat kertomat.
 
-Binomikerroin on hyödyllinen työkalu kombinatoriikassa sen monien sovellusten ansiosta. Esimerkiksi `ncr(n,k)` ilmaisee, monessako `n`-pituisessa bittijonossa on tasan `k` ykkösbittiä tai montako tapaa on jakaa `k` palloa `n` laatikkoon niin, että jokaisessa laatikossa on enintään yksi pallo.
-
-Vaikeampi tehtävä on laskea, montako tapaa on jakaa `k` palloa `n` laatikkoon niin, että samassa laatikossa voi olla montakin palloa (kaksi tapaa ovat erilaiset, jos jossakin laatikossa on eri määrä palloja). Vastaus tähän on `ncr(n+k-1,k)`, koska jokainen tapa voidaan esittää bittijonona, jonka pituus on `n+k-1` merkkiä ja jossa on tasan `k` ykkösbittiä. Tällainen bittijono kuvaa prosessin, jolla pallot sijoitetaan vasemmasta laatikosta aloittaen. Merkki 0 tarkoittaa "siirry seuraavaan laatikkoon oikealle" ja merkki 1 tarkoittaa "laita yksi pallo tähän laatikkoon".
+Binomikerroin on hyödyllinen työkalu kombinatoriikassa sen monien sovellusten ansiosta. Esimerkiksi `ncr(n,k)` ilmaisee, monessako `n`-pituisessa bittijonossa on tasan `k` ykkösbittiä tai montako tapaa on jakaa `k` palloa `n` laatikkoon niin, että jokaisessa laatikossa on enintään yksi pallo. Vaikeampi tehtävä on laskea, monellako tavalla pallot voidaan jakaa laatikoihin niin, että samassa laatikossa voi olla montakin palloa ja kaksi tapaa ovat erilaiset, jos jossakin laatikossa on eri määrä palloja. Vastaus tähän on `ncr(n+k-1,k)`, koska jokainen tapa voidaan esittää bittijonona, jonka pituus on `n+k-1` merkkiä ja jossa on tasan `k` ykkösbittiä. Tällainen bittijono kuvaa prosessin, jolla pallot sijoitetaan vasemmasta laatikosta aloittaen. Merkki 0 tarkoittaa "siirry seuraavaan laatikkoon oikealle" ja merkki 1 tarkoittaa "laita yksi pallo tähän laatikkoon".
 
 ### Nim-peli
 
