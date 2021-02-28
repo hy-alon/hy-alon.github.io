@@ -759,6 +759,33 @@ TODO
 
 ## Matematiikka
 
+### Eratostheneen seula
+
+Eratostheneen seula on tehokas tapa etsiä kaikki alkuluvut 1:n ja `n`:n väliltä. Seulan voi toteuttaa seuraavasti:
+
+```cpp
+for (int i = 2; i <= n; i++) {
+    if (sieve[i]) continue;
+    for (int j = 2*i; j <= n; j += i) {
+        sieve[j] = 1;
+    }
+}
+```
+
+Algoritmin päätteeksi `sieve[x]` kertoo, onko luku `x` alkuluku. Arvo 0 tarkoittaa, että luku on alkuluku, ja arvo 1 tarkoittaa, että luku ei ole alkuluku. Ideana on, että aina kun vastaan tulee alkuluku, kaikki sen moninkerrat merkitään ei-alkuluvuiksi.
+
+Vaikka algoritmissa on kaksi silmukkaa sisäkkäin, se toimii hyvin tehokkaasti. Yläraja algoritmin ajankäytölle saadaan siitä, että sisempää silmukkaa suoritetaan enintään `n/2+n/3+n/4+...`. Tämä on harmoninen summa, joka on luokkaa `O(n log n)`.
+
+Muuttamalla algoritmia niin, että silmukan sisällä asetetaan `sieve[j] = i`, algoritmin jälkeen voi myös tehokkaasti etsiä luvun esityksen alkulukuina, koska silloin `sieve[x]` kertoo jonkin luvun `x` alkutekijän, jos luku ei ole alkuluku.
+
+Tällainen algoritmin runko on hyödyllinen joskus muissakin tehtävissä, koska voidaan käydä läpi kaikki moninkerrat ja tuloksena on algoritmi, joka vie aikaa `O(n log n)`.
+
+### Modulolaskenta
+
+### Binomikerroin
+
+### Nim-peli
+
 ### Tehtävät
 
 * [Counting Divisors](https://cses.fi/alon/task/1713)
