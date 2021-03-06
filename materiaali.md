@@ -8,6 +8,8 @@ Materiaali olettaa, että osaat hyvin kurssin _Tietorakenteet ja algoritmit_ asi
 
 Voit käyttää kurssilla halutessasi C++:n sijasta myös Haskell- tai Rust-kieliä, jos olet valmis opettelemaan näihin kieliin liittyviä asioita itsenäisesti. Tämä materiaali on tehty olettaen, että käytössä on C++.
 
+Jos huomaat virheitä tai puutteita materiaalissa, voit lähettää muutosehdotuksen [GitHubin kautta](https://github.com/hy-alon/hy-alon.github.io).
+
 **Varoitus: Monet kurssin tehtävistä ovat vaikeita, ja kurssin suorittaminen vaatii paljon työtä ja aikaa.**
 
 ## Aloittaminen
