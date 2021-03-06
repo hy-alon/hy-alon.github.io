@@ -72,6 +72,7 @@ aybabtu
 * [Increasing Array](https://cses.fi/alon/task/1094)
 * [Two Sets](https://cses.fi/alon/task/1092)
 * [Collecting Numbers](https://cses.fi/alon/task/2216)
+* [Creating Strings](https://cses.fi/alon/task/1622)
 
 ## Vektori ja järjestäminen
 
@@ -438,6 +439,9 @@ Jos et muista hyvin, miten dynaamista ohjelmointia käytetään, sinun kannattaa
 
 * [Two Sets II](https://cses.fi/alon/task/1093)
 * [Rectangle Cutting](https://cses.fi/alon/task/1744)
+* [Removal Game](https://cses.fi/alon/task/1097)
+* [Counting Towers](https://cses.fi/alon/task/2413)
+* [Counting Numbers](https://cses.fi/alon/task/2220)
 
 ## X
 
@@ -813,6 +817,7 @@ Nimin tyylisesti voidaan pelata monia muitakin pelejä esittämällä osapelit s
 * [Counting Divisors](https://cses.fi/alon/task/1713)
 * [Common Divisors](https://cses.fi/alon/task/1081)
 * [Binomial Coefficients](https://cses.fi/alon/task/1079)
+* [Creating Strings II](https://cses.fi/alon/task/1715)
 * [Distributing Apples](https://cses.fi/alon/task/1716)
 * [Nim Game I](https://cses.fi/alon/task/1730)
 * [Nim Game II](https://cses.fi/alon/task/1098)
