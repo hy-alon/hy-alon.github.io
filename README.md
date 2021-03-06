@@ -4,6 +4,10 @@
 
 Löydät kurssin ohjeet ja tehtävät [CSES-järjestelmästä](https://cses.fi/alon/list/).
 
+## Kurssimateriaali
+
+Neuvoja tehtävien ratkaisemiseen saat [kurssimateriaalista](https://alon.mooc.fi/materiaali)
+
 ## Keskustelu
 
 Kurssilla on [Telegram-ryhmä](https://t.me/tkt_alon), jossa voit keskustella kurssin muiden osallistujien ja henkilökunnan kanssa.
