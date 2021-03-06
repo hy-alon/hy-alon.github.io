@@ -426,7 +426,7 @@ cout << s.order_of_key(8) << "\n"; // 3
 
 * [Concert Tickets](https://cses.fi/alon/task/1091)
 * [Room Allocation](https://cses.fi/alon/task/1164)
-* [Subarray Distinct Values](https://cses.fi/alon/task/2162)
+* [Subarray Distinct Values](https://cses.fi/alon/task/2428)
 * [Josephus Problem II](https://cses.fi/alon/task/2163)
 
 ## Dynaaminen ohjelmointi
