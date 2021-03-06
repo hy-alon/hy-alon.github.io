@@ -827,6 +827,57 @@ Nimin tyylisesti voidaan pelata monia muitakin pelejä esittämällä osapelit s
 
 ## Merkkijonot
 
+### Z-algoritmi
+
+Z-algoritmi on `O(n)`-aikainen algoritmi, joka muodostaa merkkijonoa vastaavan Z-taulukon. Jokainen tässä taulukossa oleva luku kertoo, montako merkkiä siitä kohdasta alkava merkkijono täsmää merkkijonon alun kanssa.
+
+Tarkastellaan esimerkkinä merkkijonoa `ABABCABABCB`. Tämän merkkijonon Z-taulukko on seuraavanlainen:
+
+```
+A B A B C A B A B C B
+- 0 2 0 0 5 0 2 0 0 0
+```
+
+Esimerkiksi taulukossa on toisen `A`:n kohdalla on luku 2, koska täsmäävä alkuosa on `AB`, jonka pituus on 2.
+
+Z-algoritmi vertaa joka kohdassa taulukon alkuosaa ja kyseisestä kohdasta alkavaa merkkijonoa merkki kerrallaan. Tavallisesti toteutettuna tämä veisi aikaa `O(n²)`, mutta algoritmissa on yksi tärkeä optimointi, jonka ansiosta aikaa kuluu vain `O(n)`.
+
+Ideana on pitää yllä tietoa siitä, mikä on tähän mennessä pisimmälle merkkijonossa yltänyt täsmäävä osa (oikea reuna), ja hyödyntää tätä tietoa seuraavien arvojen laskemisessa. Tarkastellaan esimerkkinä tilannetta, jossa olemme laskeneet seuraavat arvot taulukkoon:
+
+```
+A B A B C A B A B C B
+- 0 2 0 0 5 0 ? ? ? ?
+```
+
+Tässä vaiheessa meillä on tietona, että 5:n pituinen täsmäävä osuus ulottuu merkkijonon toiseksi viimeiseen merkkiin asti. Niinpä voimme päätellä suoraan (vertaamatta merkkejä yksi kerrallaan), että seuraava luku on 2, koska vastaavassa kohdassa taulukon alussa on luku 2:
+
+```
+A B A B C A B A B C B
+- 0 2 0 0 5 0 2 ? ? ?
+```
+
+Vastaavalla tavalla voimme päätellä myös kaksi seuraavaa lukua:
+
+```
+A B A B C A B A B C B
+- 0 2 0 0 5 0 2 0 0 ?
+```
+
+Viimeisen luvun kohdalla meidän täytyy jälleen verrata merkkejä yksi kerrallaan, koska meillä ei ole aiempaa tietoa tästä merkkijonon osasta. Koska ensimmäiset merkit eivät täsmää, tuloksena on seuraava taulukko:
+
+```
+A B A B C A B A B C B
+- 0 2 0 0 5 0 2 0 0 0
+```
+
+Aina kun vertaamme merkkejä yksi kerrallaan, muistissa oleva oikea reuna liikkuu, joten algoritmi vie aikaa vain `O(n)`.
+
+Z-algoritmin avulla voidaan ratkaista tehokkaasti monia merkkijonotehtäviä. Tarkastellaan esimerkkinä tehtävää, jossa haluamme laskea, montako kertaa merkkijonon _A_ osana esiintyy merkkijono _B_. Tämä selviää muodostamalla Z-taulukko merkkijonolle _BA_ ja tutkimalla, monessako kohdassa _A_:n alueella taulukon arvo on _B_:n pituus tai suurempi.
+
+### Suffiksitaulukko
+
+TODO
+
 ### Tehtävät
 
 * [String Matching](https://cses.fi/alon/task/1753)
