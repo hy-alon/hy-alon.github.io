@@ -443,7 +443,7 @@ Jos et muista hyvin, miten dynaamista ohjelmointia käytetään, sinun kannattaa
 * [Counting Towers](https://cses.fi/alon/task/2413)
 * [Counting Numbers](https://cses.fi/alon/task/2220)
 
-## X
+## TODO
 
 ### Pienin muutos
 
@@ -630,6 +630,8 @@ Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo 
 * [Distinct Values Queries](https://cses.fi/alon/task/1734)
 
 ## Verkkoalgoritmit
+
+TODO
 
 ### Tehtävät
 
