@@ -429,7 +429,6 @@ cout << s.order_of_key(8) << "\n"; // 3
 * [Concert Tickets](https://cses.fi/alon/task/1091)
 * [Room Allocation](https://cses.fi/alon/task/1164)
 * [Subarray Distinct Values](https://cses.fi/alon/task/2428)
-* [Josephus Problem II](https://cses.fi/alon/task/2163)
 
 ## Dynaaminen ohjelmointi
 
@@ -626,6 +625,7 @@ Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo 
 * [Dynamic Range Minimum Queries](https://cses.fi/alon/task/1649)
 * [Hotel Queries](https://cses.fi/alon/task/1143)
 * [List Removals](https://cses.fi/alon/task/1749)
+* [Josephus Problem II](https://cses.fi/alon/task/2163)
 * [Increasing Subsequence](https://cses.fi/alon/task/1145)
 * [Range Update Queries](https://cses.fi/alon/task/1651)
 * [Nested Ranges Count](https://cses.fi/alon/task/2169)
