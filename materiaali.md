@@ -492,7 +492,11 @@ Muutoskohdan etsimisestä on hyötyä, koska monen ongelman voi esittää muodos
 
 ### Meet in the middle
 
-TODO
+Annettuna on `n` lukua ja haluamme laskea, monessako osajoukossa lukujen summa on `x`. Tämä voidaan tehdä ajassa `O(2^n)` käymällä läpi kaikki osajoukot, mutta meet in the middle -tekniikan avulla aikaa kuluu vain `O(2^(n/2))`. Tämä on merkittävä parannus, koska eksponentissa oleva luku puolittuu.
+
+Ideana on jakaa ensin luvut kahteen joukkoon ja käydä läpi näiden joukkojen osajoukot, mihin kuluu aikaa `O(2^(n/2))`. Tässä vaiheessa lasketaan jokaisen osajoukon summa ja järjestetään summat. Tämän jälkeen riittää käydä läpi ensimmäisen joukon osajoukot ja laskea jokaisen osajoukon kohdalla, monellako tavalla toisesta joukosta voidaan valita osajoukko niin, että yhteissummaksi tulee `x`. Kun ensimmäisen joukon osajoukon summa on `a`, toisesta joukosta täytyy valita osajoukko, jonka summa on `x-a`. Tämä onnistuu tehokkaasti, kun osajoukot ovat järjestyksessä.
+
+Esimerkiksi kun joukko on {1,2,3,4} ja haluttu summa on 5, muodostetaan joukot {1,2} ja {3,4}. Näiden joukkojen osajoukkojen summat ovat [0,1,2,3] ja [0,3,4,7]. Tässä on kaksi tapaa saada summaksi 5: valitaan ensimmäisestä listasta summa 1 ja toisesta listasta summa 4 tai sitten ensimmäisestä listasta summa 2 ja toisesta listasta summa 3.
 
 ### Tehtävät
 
