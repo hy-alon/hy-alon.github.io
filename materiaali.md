@@ -878,7 +878,142 @@ Z-algoritmin avulla voidaan ratkaista tehokkaasti monia merkkijonotehtäviä. Ta
 
 ### Suffiksitaulukko
 
-TODO
+Suffiksitaulukko on tietorakenne, joka osoittaa merkkijonon osajonojen järjestyksen. Jokainen suffiksitaulukon alkio vastaa osajonoa, joka alkaa tietystä merkkijonon kohdasta ja päättyy merkkijonon loppuun (eli osajono on merkkijonon loppuosa eli suffiksi).
+
+Esimerkiksi merkkijonon `ABACABACAC` suffiksitaulukko on seuraava:
+
+```
+0 4 8 2 6 1 5 9 3 7
+```
+
+Seuraavassa näkyy, miten suffiksitaulukko ilmaisee osajonojen järjestyksen:
+
+```
+0 ABACABACAC
+4 ABACAC
+8 AC
+2 ACABACAC
+6 ACAC
+1 BACABACAC
+5 BACAC
+9 C
+3 CABACAC
+7 CAC
+```
+
+Suffiksitaulukon ja binäärihaun avulla voidaan etsiä ajassa `O(k log n)` kohdat, joissa tietty `k`-merkkinen osajono esiintyy merkkijonossa. Esimerkiksi jos haettavana on merkkijono `AC`, ensin etsitään alue, jossa osajono alkaa merkillä `A`:
+
+```
+0 ABACABACAC
+4 ABACAC
+8 AC
+2 ACABACAC
+6 ACAC
+```
+
+Tämän jälkeen tätä aluetta rajataan vielä niin, että toisen merkin tulee olla `C`:
+
+```
+8 AC
+2 ACABACAC
+6 ACAC
+```
+
+Tämän perusteella tiedetään, että merkkijono `AC` esiintyy kolmesti merkkijonon osajonona. Lisäksi voitaisiin hakea tehokkaasti ensimmäinen esiintymiskohta esimerkiksi yhdistämällä suffiksitaulukkoon segmenttipuu, joka antaa välin minimin.
+
+Mutta kuinka suffiksitaulukko voidaan luoda tehokkaasti? Yksi kätevä tapa on laskea tunnisteet merkkijonon osajonoille, joiden pituus on 2:n potenssi. Ensin tunnisteet lasketaan 1:n pituisille, sitten 2:n pituisille, sitten 4:n pituisille jne. osajonoille. Jokainen tunniste on yksi luku, joka ilmaisee osajonon järjestyksen muihin samanpituisiin verrattuna.
+
+Aluksi 1:n pituiset tunnisteet voidaan valita suoraan merkkien järjestyksen mukaan:
+
+```
+A B A C A B A C A C
+1 2 1 3 1 2 1 3 1 3
+```
+
+Sitten pidempi tunniste saadaan muodostamalla ensin pari, jossa on kaksi edellisen pituuden tunnistetta, ja antamalla lopuksi pareille järjestyksessä uudet tunnisteet 1, 2, 3, jne. Esimerkiksi kun muodostettavan on 2:n pituiset tunnisteet, parit ovat:
+
+```
+ A     B     A     C     A     B     A     C     A     C
+(1,2) (2,1) (1,3) (3,1) (1,2) (2,1) (1,3) (3,1) (1,3) (3,0)
+```
+
+Huomaa, että viimeisessä parissa jälkimmäinen osa on 0, koska osa on merkkijonon ulkopuolella. Tämän jälkeen pareille annetaan lopulliset tunnisteet järjestyksessä seuraavasti:
+
+* `(1,2) -> 1`
+* `(1,3) -> 2`
+* `(2,1) -> 3`
+* `(3,0) -> 4`
+* `(3,1) -> 5`
+
+Niinpä 2:n pituisten osajonojen tunnisteet ovat:
+
+```
+A B A C A B A C A C
+1 3 2 5 1 3 2 5 2 4
+```
+
+Sitten lasketaan vastaavasti 4:n pituiset tunnisteet:
+
+```
+ A     B     A     C     A     B     A     C     A     C
+(1,2) (3,5) (2,1) (5,3) (1,2) (3,5) (2,2) (5,4) (2,0) (4,0)
+```
+
+```
+A B A C A B A C A C
+1 5 3 7 1 5 4 8 2 6
+```
+
+Tämän jälkeen lasketaan vielä 8:n pituiset tunnisteet:
+
+```
+ A     B     A     C     A     B     A     C     A     C
+(1,1) (5,5) (3,4) (7,8) (1,2) (5,6) (4,0) (8,0) (2,0) (6,0)
+```
+
+```
+A B A C A B A C  A C
+1 6 4 9 2 7 5 10 3 8
+```
+
+Nyt jokaisella osajonolla on oma tunniste, minkä avulla voidaan muodostaa suffiksitaulukko lukemalla tunnisteita vastaavat kohdat tunnisteiden järjestyksessä 1, 2, 3, jne.:
+
+```
+0 4 8 2 6 1 5 9 3 7
+```
+
+Tämän algoritmin aikavaativuus on `O(n log^2 n)`, koska jokaisella osajonolla on eri tunniste `O(log n)` kierroksen jälkeen (kullakin kierroksella lasketaan tietyn pituisten osajonojen tunnisteet) ja kierroksella järjestetään parit ajassa `O(n log n)`.
+
+Suffiksitaulukon muodostamiseen tunnetaan myös tehokkaampia tapoja: jopa `O(n)`-aikaisia algoritmeja on olemassa. Tässä esitetty yksinkertainen menetelmä on kuitenkin melko tehokas ja riittää usein.
+
+Suffiksitaulukon lisäksi jossain ongelmissa hyödyllinen tietorakenne on LCP-taulukko, joka ilmaisee jokaisesta suffiksitaulukossa peräkkäin olevasta merkkijonosta niiden yhteisen alkuosan pituuden. Esimerkiksi merkkijonon `ABACABACAC` LCP-taulukko on seuraava:
+
+```
+- 5 1 2 3 0 4 0 1 2
+```
+
+Jokainen LCP-taulukon arvo ilmaisee vastaavan suffiksitaulukon kohdan osajonon ja sitä edellisen osajonon yhteisen alkuosan pituuden. Koska ensimmäisessä kohdassa ei ole edellistä osajonoa, siinä kohdassa ei ole arvoa. Seuraavassa näkyy, miten LCP-taulukko liittyy osajonoihin:
+
+```
+- ABACABACAC
+5 ABACAC
+1 AC
+2 ACABACAC
+3 ACAC
+0 BACABACAC
+4 BACAC
+0 C
+1 CABACAC
+2 CAC
+```
+
+Esimerkiksi osajonon `ACAC` kohdalla on arvo 3, koska alkuosa `ACA` on sama kuin edellisessä osajonossa `ACABACAC`. LCP-taulukon avulla voidaan laskea tehokkaasti esimerkiksi, montako erilaista osajonoa merkkijonossa on, koska taulukko ilmaisee jokaisesta loppuosasta, montako merkkiä alussa on yhteisiä toisen loppuosan kanssa.
+
+Suffiksitaulukon rakentamisen jälkeen LCP-taulukko voidaan muodostaa tehokkaasti ajassa `O(n)`. Tämä on mahdollista muodostamalla taulukko loppuosille järjestyksessä pituuden mukaan pisimmästä lyhimpään. Tällöin taulukon arvojen laskemisessa voidaan hyödyntää aiemmin laskettua tietoa. Kun lasketaan kohdasta `i` alkavan loppuosan LCP-arvo, lähtökohdaksi otetaan kohdasta `i-1` alkavan loppuosan LCP-arvo `x`, joka on jo laskettu aiemmin. Uusi LCP-arvo on ainakin `x-1`, koska siinä on alussa samat merkit ensimmäistä merkkiä lukuun ottamatta. Tämän jälkeen merkkejä vertaillaan yksi kerrallaan, kunnes löytyy eroava merkki tai toinen osajono päättyy.
+
+Tarkastellaan esimerkkinä LCP-arvon laskemista osajonolle `BACAC`. Koska aiemmin on laskettu osajonon `ABACAC` LCP-arvo 5, uusi LCP-arvo on ainakin 4. Tämän jälkeen vertaillaan kohdassa 4 olevaa merkkiä osajonoissa `BACABACAC` ja `BACAC`. Koska merkit ovat `B` ja `C`, ne eroavat ja yhteisen alkuosan pituus on 4.
+
+Tällainen algoritmi vie aikaa `O(n)`, koska jokaisessa kohdassa edellinen arvo vähenee vain yhdellä, mikä rajoittaa tehokkaasti vertailujen määrää.
 
 ### Tehtävät
 
