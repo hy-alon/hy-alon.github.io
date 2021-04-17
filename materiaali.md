@@ -751,9 +751,30 @@ Kun meillä on keino selvittää tehokkaasti kahden solmun alin yhteinen esivanh
 
 Oletetaan, että solmut ovat `a` ja `b` ja niiden alin yhteinen esivanhempi on `c`. Merkitään lisäksi `d(x)` solmun `x` syvyyttä. Voimme laskea näiden tietojen perusteella solmujen `a` ja `b` etäisyyden kaavalla `d(a)+d(b)-2*d(c)`.
 
-### Keskussolmut
+### Puiden isomorfisuus
 
-TODO
+Kaksi verkkoa ovat isomorfiset, jos ne ovat rakenteeltaan samanlaiset, kun ei kiinnitetä huomiota solmujen numerointiin. Yleisessä tapauksessa verkkojen isomorfisuuden tarkastaminen on vaikeaa, mutta kun verkot ovat puita, tämä onnistuu tehokkaasti.
+
+Puiden isomorfisuus voidaan selvittää muodostamalla kummallekin puulle tunniste, joka ei riipu solmujen numeroinnista. Jos tunnisteet ovat samat, puut ovat isomorfiset, ja muuten puut eivät ole isomorfiset. 
+
+Tarkastellaan ensin tilannetta, jossa puilla on juuri. Tällöin voimme laskea tunnisteen rekursiivisesti niin, että kunkin alipuun tunniste määräytyy sen lasten tunnisteiden perustella. Tunniste voidaan laskea näin:
+
+* Jos alipuu on lehti, sen tunniste on 1.
+* Muuten kerätään listaan kaikki solmun alipuiden tunnisteet ja järjestetään lista. Jos tälle listalle on jo tunniste, käytetään sitä. Muuten annetaan listalle seuraava vapaana oleva tunniste.
+
+Nyt voimme laskea tunnisteen seuraavalle puulle:
+
+![](kuvat/puu2.png)
+
+Tässä puussa solmut 3, 4, 5 ja 6 ovat lehtiä, joten näissä solmuissa tunniste on 1. Solmussa 2 alipuiden tunnisteet ovat [1, 1], joten tämä lista saa tunnisteen 2. Solmussa 1 alipuiden tunnisteet puolestaan ovat [1, 1, 2], joten tämä lista saa tunnisteen 3. Koko puun tunniste on siis 3.
+
+Tällä tavalla laskettuna kaksi isomorfista puuta saavat aina saman tunnisteen, koska lasten tunnisteet järjestetään ja samanlainen lista saa aina saman tunnisteen. Niinpä riittää laskea tunniste kummallekin puulle ja tarkastaa, ovatko tunnisteet samat.
+
+Vaikeampi tehtävä on selvittää puiden isomorfisuus silloin, kun puilla ei ole juuria. Tämä onnistuu kuitenkin valitsemalla puille juuret sopivasti ja käyttämällä sitten äskeistä tekniikkaa.
+
+Puun solmu on keskussolmu (centroid), jos jokaisessa alipuussa on enintään `n/2` solmua, jos kyseinen solmu valitaan puun juureksi. Puun keskussolmut voidaan löytää valitsemalla puulle juureksi mikä tahansa solmu ja laskemalla jokaiseen solmuun kunkin alipuun solmujen määrä. Tämän avulla voidaan päätellä, mitkä solmut ovat keskussolmuja.
+
+Voidaan todistaa, että puussa on aina vähintään yksi keskussolmu ja enintään kaksi keskussolmua. Tämän ansiosta voimme käydä läpi eri tavat valita keskussolmut juureksi ja tutkia puiden isomorfisuus kaikissa näissä tapauksissa. Tapauksia on yhteensä enintään neljä, eli algoritmi on tehokas.
 
 ### Tehtävät
 
@@ -763,7 +784,9 @@ TODO
 * [Company Queries I](https://cses.fi/alon/task/1687)
 * [Company Queries II](https://cses.fi/alon/task/1688)
 * [Distance Queries](https://cses.fi/alon/task/1135)
+* [Tree Isomorphism I](https://cses.fi/alon/task/1700)
 * [Finding a Centroid](https://cses.fi/alon/task/2079)
+* [Tree Isomorphism II](https://cses.fi/alon/task/1701)
 
 ## Matematiikka
 
