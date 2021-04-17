@@ -1007,7 +1007,7 @@ Jokainen LCP-taulukon arvo ilmaisee vastaavan suffiksitaulukon kohdan osajonon j
 2 CAC
 ```
 
-Esimerkiksi osajonon `ACAC` kohdalla on arvo 3, koska alkuosa `ACA` on sama kuin edellisessä osajonossa `ACABACAC`. LCP-taulukon avulla voidaan laskea tehokkaasti esimerkiksi, montako erilaista osajonoa merkkijonossa on, koska taulukko ilmaisee jokaisesta loppuosasta, montako merkkiä alussa on yhteisiä toisen loppuosan kanssa.
+Esimerkiksi osajonon `BACAC` kohdalla on arvo 4, koska alkuosa `BACA` on sama kuin edellisessä osajonossa `BACABACAC`. LCP-taulukon avulla voidaan laskea tehokkaasti esimerkiksi, montako erilaista osajonoa merkkijonossa on, koska taulukko ilmaisee jokaisesta loppuosasta, montako merkkiä alussa on yhteisiä toisen loppuosan kanssa.
 
 Suffiksitaulukon rakentamisen jälkeen LCP-taulukko voidaan muodostaa tehokkaasti ajassa `O(n)`. Tämä on mahdollista muodostamalla taulukko loppuosille järjestyksessä pituuden mukaan pisimmästä lyhimpään. Tällöin taulukon arvojen laskemisessa voidaan hyödyntää aiemmin laskettua tietoa. Kun lasketaan kohdasta `i` alkavan loppuosan LCP-arvo, lähtökohdaksi otetaan kohdasta `i-1` alkavan loppuosan LCP-arvo `x`, joka on jo laskettu aiemmin. Uusi LCP-arvo on ainakin `x-1`, koska siinä on alussa samat merkit ensimmäistä merkkiä lukuun ottamatta. Tämän jälkeen merkkejä vertaillaan yksi kerrallaan, kunnes löytyy eroava merkki tai toinen osajono päättyy.
 
