@@ -768,7 +768,7 @@ Nyt voimme laskea tunnisteen seuraavalle puulle:
 
 Tässä puussa solmut 3, 4, 5 ja 6 ovat lehtiä, joten näissä solmuissa tunniste on 1. Solmussa 2 alipuiden tunnisteet ovat [1, 1], joten tämä lista saa tunnisteen 2. Solmussa 1 alipuiden tunnisteet puolestaan ovat [1, 1, 2], joten tämä lista saa tunnisteen 3. Koko puun tunniste on siis 3.
 
-Tällä tavalla laskettuna kaksi isomorfista puuta saavat aina saman tunnisteen, koska lasten tunnisteet järjestetään ja samanlainen lista saa aina saman tunnisteen. Niinpä riittää laskea tunniste kummallekin puulle ja tarkastaa, ovatko tunnisteet samat.
+Tällä tavalla laskettuna kaksi isomorfista puuta saavat aina saman tunnisteen, koska lasten tunnisteet järjestetään ja samanlainen lista saa aina saman tunnisteen. Niinpä riittää laskea tunniste kummallekin puulle ja tarkastaa, ovatko tunnisteet samat. Huomaa, että kun jälkimmäisen puun tunnisteet lasketaan, käytetään samoja listojen tunnisteita kuin ensimmäisessä puussa lasketut.
 
 Vaikeampi tehtävä on selvittää puiden isomorfisuus silloin, kun puilla ei ole juuria. Tämä onnistuu kuitenkin valitsemalla puille juuret sopivasti ja käyttämällä sitten äskeistä tekniikkaa.
 
