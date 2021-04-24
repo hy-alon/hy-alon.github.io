@@ -671,7 +671,7 @@ Eulerin kierros voidaan etsiä tehokkaasti Hierholzerin algoritmilla. Siinä ide
 
 Seuraava esimerkki näyttää, kuinka Eulerin kierros voidaan muodostaa neljästä alikierroksesta.
 
-![](kuvat/verkko.png)
+![](kuvat/euler.png)
 
 ### Funktionaalinen verkko
 
