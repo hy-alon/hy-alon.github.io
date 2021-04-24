@@ -669,7 +669,7 @@ Eulerin kierros on verkossa oleva polku, joka alkaa jostain solmusta, kulkee tas
 
 Eulerin kierros voidaan etsiä tehokkaasti Hierholzerin algoritmilla. Siinä ideana on muodostaa Eulerin kierros alikierroksista. Ensin muodostetaan jokin alikierros, joka alkaa tietystä solmusta ja palaa samaan solmuun. Tämän jälkeen kierrosta täydennetään lisäämällä siihen uusia alikierroksia, joiden alkusolmu kuuluu kierrokseen ja joiden kaaret eivät kuulu vielä kierrokseen. Lopulta kaikki kaaret kuuluvat kierrokseen, jolloin Eulerin kierros on valmis. Huomaa, että alikierros voidaan aina muodostaa sen ansiosta, että jokaisen solmun aste on parillinen.
 
-Seuraava esimerkki näyttää, kuinka Eulerin kierros voidaan muodostaa neljästä alikierroksesta.
+Seuraava esimerkki näyttää, kuinka Eulerin kierros voidaan muodostaa kolmesta alikierroksesta. Ensimmäinen alikierros on 1→2→3→1, toinen alikierros on 2→5→6→2 ja kolmas alikierros on 6→3→4→7→6. Näistä muodostuu Eulerin kierros 1→2→5→6→3→4→7→6→2→3→1.
 
 ![](kuvat/euler.png)
 
