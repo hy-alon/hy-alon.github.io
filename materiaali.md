@@ -12,6 +12,13 @@ Jos huomaat virheitä tai puutteita materiaalissa, voit lähettää muutosehdotu
 
 **Varoitus: Monet kurssin tehtävistä ovat vaikeita, ja kurssin suorittaminen vaatii paljon työtä ja aikaa.**
 
+## Kurssin rakenne
+
+Kurssilla on yhteensä 100 tehtävää, jotka jakautuvat kahteen osaan:
+
+* Osa 1 (65 tehtävää) opettaa algoritmien suunnittelua ja tietorakenteiden käyttämistä. Tämä materiaali on tarkoitettu näiden tehtävien ratkaisemiseen.
+* Osa 2 (35 tehtävää) sisältää vaikeampia tehtäviä, joissa tarvitaan osan 1 tekniikoita. Nämä tehtävät vaativat itsenäistä ongelmanratkaisua ja soveltamista.
+
 ## Aloittaminen
 
 Tarvitset kurssilla tekstieditorin, jolla voi kirjoittaa koodia, sekä C++-kääntäjän. Suositeltava kääntäjä on `g++`, joka on käytössä myös CSES-järjestelmässä, johon kurssin tehtävät palautetaan.
