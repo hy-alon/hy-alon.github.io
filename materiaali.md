@@ -644,7 +644,7 @@ Usein hyvä tapa tallentaa verkko C++:ssa on käyttää vieruslistaesitystä, jo
 voidaan määritellä näin:
 
 ```cpp
-vector<int> graph[6]
+vector<int> graph[6];
 graph[1].push_back(2);
 graph[1].push_back(3);
 graph[1].push_back(4);
