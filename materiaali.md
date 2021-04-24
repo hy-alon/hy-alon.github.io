@@ -409,7 +409,7 @@ typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_upda
 
 Tuloksena oleva tietorakenne on kuin `set`, mutta siinä on kaksi hyödyllistä `O(log n)`-aikaista lisäfunktiota. Funktio `find_by_order` antaa iteraattorin tietyssä kohdassa järjestyksessä olevaan alkioon. Funktio `order_of_key` puolestaan kertoo, missä kohtaa järjestystä tietty joukon alkio on (tai _olisi_, jos alkiota ei ole joukossa).
 
-```
+```cpp
 indexed_set s;
 s.insert(2);
 s.insert(3);
@@ -445,9 +445,9 @@ Jos et muista hyvin, miten dynaamista ohjelmointia käytetään, sinun kannattaa
 * [Counting Towers](https://cses.fi/alon/task/2413)
 * [Counting Numbers](https://cses.fi/alon/task/2220)
 
-## TODO
+## Hyödyllisiä tekniikoita
 
-### Pienin muutos
+### Summan minimointi
 
 Annettuna on `n` lukua `a[0]`, `a[1]`, ..., `a[n-1]` ja tehtävänä on löytää luku `x`, joka minimoi summan `abs(a[0]-x)+abs(a[1]-x)+...+abs(a[n-1]-x)` (tässä `abs` tarkoittaa itseisarvoa).
 
