@@ -687,7 +687,26 @@ Hyppytaulukon hyötynä on, että mikä tahansa askelten määrä voidaan esitt�
 
 ### Saavutettavat solmut
 
-TODO
+Annettuna on syklitön suunnattu verkko ja haluamme laskea jokaiselle solmulle saavutettavien solmujen määrän eli moneenko eri solmuun on mahdollista päästä aloittamalla solmusta ja kulkemalla verkossa kaaria pitkin.
+
+Tämä tuntuu dynaamisen ohjelmoinnin tyyliseltä ongelmalta, mutta vaikeutena on, että samaan solmuun voi päästä useaa reittiä. Tämän takia ei riitä käydä läpi solmusta lähteviä kaaria ja laskea yhteen saavutettavien solmujen määriä.
+
+Toimiva ratkaisu syntyy tallentamalla jokaiseen solmuun lista kaikista saavutettavista solmuista. Tämän avulla dynaaminen ohjelmointi voidaan toteuttaa luotettavasti, koska voidaan pitää huolta siitä, että samaa solmua ei lasketa monta kertaa.
+
+Tehokas tapa toteuttaa ratkaisu on tallentaa saavutettavat solmut bitteinä. Tällöin jokaiseen solmuun tallennetaan `n` bittiä ja bitti 1 tarkoittaa, että solmusta on polku kyseiseen solmuun. C++:ssa tämä onnistuu kätevästi `bitset`-rakenteen avulla. Esimerkiksi seuraava koodi luo joukot `a` ja `b` ja yhdistää niiden sisällön joukoksi `c`.
+
+```cpp
+bitset<8> a, b, c;
+a[0] = 1;
+a[5] = 1;
+a[6] = 1;
+cout << a << "\n"; // 01100001
+b[2] = 1;
+b[6] = 1;
+cout << b << "\n"; // 01000100
+c = a|b;
+cout << c << "\n"; // 01100101
+```
 
 ### Sillat ja artikulaatiopisteet
 
