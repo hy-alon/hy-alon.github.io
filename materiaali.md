@@ -637,6 +637,60 @@ Vastaavalla tavalla voi esimerkiksi ylläpitää taulukkoa, jossa jokainen arvo 
 
 ## Verkkoalgoritmit
 
+Usein hyvä tapa tallentaa verkko C++:ssa on käyttää vieruslistaesitystä, joka toteutetaan taulukkona vektoreita. Esimerkiksi verkko
+
+![](kuvat/verkko.png)
+
+voidaan määritellä näin:
+
+```cpp
+vector<int> graph[6]
+graph[1].push_back(2);
+graph[1].push_back(3);
+graph[1].push_back(4);
+graph[2].push_back(1);
+graph[2].push_back(4);
+graph[2].push_back(5);
+graph[3].push_back(1);
+graph[3].push_back(4);
+graph[4].push_back(1);
+graph[4].push_back(2);
+graph[4].push_back(3);
+graph[4].push_back(5);
+graph[5].push_back(2);
+graph[5].push_back(4);
+```
+
+[Tirakirjan](https://www.cs.helsinki.fi/u/ahslaaks/tirakirja/) luvuissa 10–14 käsitellään verkkojen perusasioita, jotka ovat tämän kurssin esitietoina.
+
+### Eulerin kierros
+
+Eulerin kierros on verkossa oleva polku, joka alkaa jostain solmusta, kulkee tasan kerran jokaisen kaaren kautta ja palaa lopuksi alkusolmuun. Suuntaamattomassa verkossa on Eulerin kierros tarkalleen silloin, kun verkko on yhtenäinen ja jokaisen solmun aste on parillinen.
+
+Eulerin kierros voidaan etsiä tehokkaasti Hierholzerin algoritmilla. Siinä ideana on muodostaa Eulerin kierros alikierroksista. Ensin muodostetaan jokin alikierros, joka alkaa tietystä solmusta ja palaa samaan solmuun. Tämän jälkeen kierrosta täydennetään lisäämällä siihen uusia alikierroksia, joiden alkusolmu kuuluu kierrokseen ja joiden kaaret eivät kuulu vielä kierrokseen. Lopulta kaikki kaaret kuuluvat kierrokseen, jolloin Eulerin kierros on valmis. Huomaa, että alikierros voidaan aina muodostaa sen ansiosta, että jokaisen solmun aste on parillinen.
+
+Seuraava esimerkki näyttää, kuinka Eulerin kierros voidaan muodostaa neljästä alikierroksesta.
+
+![](kuvat/verkko.png)
+
+### Funktionaalinen verkko
+
+Funktionaalinen verkko on suunnattu verkko, jossa jokaisesta solmusta lähtee tasan yksi kaari. Seuraavassa on esimerkki funktionaalisesta verkosta:
+
+![](kuvat/funkt.png)
+
+Funktionaalinen verkko voidaan esittää funktiona, joka kuvaa, mihin solmuun mistäkin solmusta pääsee yhdellä askeleella. Esimerkiksi yllä olevaa verkkoa vastaavassa funktiossa `f(1)=3`, `f(2)=5`, `f(3)=7` jne. Funktionaalinen verkko muodostuu aina yhdestä tai useammasta komponentista, jossa on sykli ja siihen johtavia polkuja.
+
+Tehokas tapa käsitellä funktionaalista verkkoa on muodostaa _hyppytaulukko_, joka kertoo jokaiselle solmulle, mihin solmuun siitä pääsee kulkemalla 2:n potenssin verran askelia. Merkitään `g(x,k)` solmua, johon pääsee solmusta `x` kulkemalla `2^k` askelta. Nyt pohjatapauksena on `g(x,0)=f(x)` ja muut arvot saadaan laskettua rekursiivisesti kaavalla `g(x,k)=g(g(x,k-1),k-1)`. Nämä kaikki arvot voidaan tallentaa muistiin taulukkoon sopivaan `k`:n ylärajaan asti.
+
+Hyppytaulukon hyötynä on, että mikä tahansa askelten määrä voidaan esittää summana 2:n potensseja niin, että summassa on logaritminen määrä osia. Esimerkiksi jos askelten määrä on 26, tämä vastaa summaa 16 + 8 + 2. Tässä tapauksessa 26 askeleen päässä solmusta `x` oleva solmu on `g(g(g(x,4),3),1)` eli riittää lukea hyppytaulukosta kolme arvoa.
+
+### Saavutettavat solmut
+
+TODO
+
+### Sillat ja artikulaatiopisteet
+
 TODO
 
 ### Tehtävät
