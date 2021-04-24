@@ -710,7 +710,29 @@ cout << c << "\n"; // 01100101
 
 ### Sillat ja artikulaatiopisteet
 
-TODO
+Verkko on _2-yhtenäinen_, jos se säilyy yhtenäisenä, vaikka siitä poistetaan mikä tahansa yksittäinen solmu ja siihen liittyvät kaaret. Esimerkiksi seuraavassa kuvassa vasen verkko on 2-yhtenäinen, mutta oikea verkko ei ole, koska solmun 3 poistaminen jakaa sen kahteen osaan.
+
+![](kuvat/silart1.png)
+
+Verkossa oleva kaari on _silta_, jos sen poistaminen jakaa verkon osiin, ja verkossa oleva solmu on _artikulaatiopiste_, jos sen poistaminen jakaa verkon osiin. Esimerkiksi seuraavassa verkossa kaaret 4–5 ja 7–8 ovat siltoja ja solmut 4, 5 ja 7 ovat artikulaatiopisteitä.
+
+![](kuvat/silart2.png)
+
+Kun syvyyshaku käy läpi verkon solmut tietystä solmusta alkaen, syntyy puu, jonka avulla verkon kaaria voidaan luokitella. Jokainen kaari on joko _puukaari_, joka kulkee uuteen solmuun, tai _takautuva kaari_, joka palaa takaisin aiempaan solmuun.
+
+Seuraavassa kuvassa on verkko ja sitä vastaava puu solmusta 1 alkaen. Yhtenäiset viivat kuvaavat puukaaret ja katkoviivat kuvaavat takautuvat kaaret.
+
+![](kuvat/silart3.png)
+
+Voimme tunnistaa syvyyshaun tuottamasta puusta verkon sillat ja artikulaatiopisteet. Tarkastellaan seuraavaa puuta, joka vastaa ylempänä esiintynyttä verkkoa:
+
+![](kuvat/silart4.png)
+
+Puussa oleva kaari _a_→_b_ vastaa siltaa, jos se on puukaari eikä solmun _b_ alipuusta ole takautuvaa kaarta solmuun _a_ eikä mihinkään solmun _a_ esivanhempaan. Yllä olevassa verkossa esimerkiksi kaari 5→4 vastaa siltaa, koska solmun 4 alipuusta ei ole takautuvaa kaarta solmuun 5 eikä sen esivanhempaan.
+
+Puussa oleva solmu _x_ on artikulaatiopiste kahdessa tapauksessa. Ensinnäkin jos solmu _x_ on juuri, se on artikulaatiopiste tarkalleen silloin, kun sillä on kaksi tai useampia lapsia. Jos taas solmu _x_ ei ole juuri, se on artikulaatiopiste, jos sillä on lapsi, jonka alipuussa ei ole takautuvaa kaarta solmun _x_ esivanhempaan. Yllä olevassa verkossa solmu 5 on artikulaatiopiste, koska se on juuri ja sillä on kaksi lasta. Solmu 4 on puolestaan artikulaatiopiste sen vuoksi, että sen lapsen 2 alipuussa ei ole takautuvaa solmua solmun 4 esivanhempaan.
+
+Tällä tavalla voimme etsiä sekä verkon sillat että artikulaatiopisteet tehokkaasti lineaarisessa ajassa suorittamalla syvyyshaun jostakin solmusta.
 
 ### Tehtävät
 
