@@ -1,16 +1,10 @@
 # Materiaali
 
-## Johdanto
-
-Tervetuloa kurssille _Algoritmit ongelmanratkaisussa_! Tämän materiaalin tarkoituksena on auttaa sinua kurssin suorittamisessa.
-
 Materiaali olettaa, että osaat hyvin kurssin _Tietorakenteet ja algoritmit_ asiat. Voit tarvittaessa käyttää [Tirakirjaa](https://www.cs.helsinki.fi/u/ahslaaks/tirakirja/) näiden asioiden kertaamiseen. Lisäksi materiaali olettaa, että osaat C++-kielen perusteet. Jos et ole käyttänyt ennen C++-kieltä, voit opetella perusteet esimerkiksi [Tie koodariksi -kurssilta](https://tie.koodariksi.fi/cpp/).
 
 Voit käyttää kurssilla halutessasi C++:n sijasta myös Haskell- tai Rust-kieliä, jos olet valmis opettelemaan näihin kieliin liittyviä asioita itsenäisesti. Tämä materiaali on tehty olettaen, että käytössä on C++.
 
 Jos huomaat virheitä tai puutteita materiaalissa, voit lähettää muutosehdotuksen [GitHubin kautta](https://github.com/hy-alon/hy-alon.github.io).
-
-**Varoitus: Monet kurssin tehtävistä ovat vaikeita, ja kurssin suorittaminen vaatii paljon työtä ja aikaa.**
 
 ## Kurssin rakenne
 
@@ -18,6 +12,8 @@ Kurssilla on yhteensä 100 tehtävää, jotka jakautuvat kahteen osaan:
 
 * Osa 1 (65 tehtävää) opettaa algoritmien suunnittelua ja tietorakenteiden käyttämistä. Tämä materiaali on tarkoitettu näiden tehtävien ratkaisemiseen.
 * Osa 2 (35 tehtävää) sisältää vaikeampia tehtäviä, joissa tarvitaan osan 1 tekniikoita. Nämä tehtävät vaativat itsenäistä ongelmanratkaisua ja soveltamista.
+
+**Varoitus: Monet kurssin tehtävistä ovat vaikeita, ja kurssin suorittaminen vaatii paljon työtä ja aikaa.**
 
 ## Aloittaminen
 
