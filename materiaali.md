@@ -1055,7 +1055,7 @@ A B A C A B A C A C
 1 2 1 3 1 2 1 3 1 3
 ```
 
-Sitten pidempi tunniste saadaan muodostamalla ensin pari, jossa on kaksi edellisen pituuden tunnistetta, ja antamalla lopuksi pareille järjestyksessä uudet tunnisteet 1, 2, 3, jne. Esimerkiksi kun muodostettavan on 2:n pituiset tunnisteet, parit ovat:
+Sitten pidempi tunniste saadaan muodostamalla ensin pari, jossa on kaksi edellisen pituuden tunnistetta, ja antamalla lopuksi pareille järjestyksessä uudet tunnisteet 1, 2, 3, jne. Esimerkiksi kun muodostettavana on 2:n pituiset tunnisteet, parit ovat:
 
 ```
  A     B     A     C     A     B     A     C     A     C
