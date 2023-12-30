@@ -85,7 +85,7 @@ C++:n standardikirjasto sisältää monia valmiita tietorakenteita ja algoritmej
 
 ### Vektorin luominen
 
-Vektorin käyttäminen vaatii, että koodin alussa on rivi `#include <vector>`. Esimerkiksi seuraava koodi luo vektorin `c`, jonka alkiot ovat `int`-lukuja, ja lisää siihen kolme alkiota:
+Vektorin käyttäminen vaatii, että koodin alussa on rivi `#include <vector>`. Esimerkiksi seuraava koodi luo vektorin `v`, jonka alkiot ovat `int`-lukuja, ja lisää siihen kolme alkiota:
 
 ```cpp
 vector<int> v;
