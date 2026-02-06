@@ -363,9 +363,9 @@ multiset<int> s;
 s.insert(5);
 s.insert(5);
 s.insert(5);
-cout << s.count(5); << "\n"; // 3
+cout << s.count(5) << "\n"; // 3
 s.erase(5);
-cout << s.count(5); << "\n"; // 0
+cout << s.count(5) << "\n"; // 0
 ```
 
 Yksittäisen esiintymän pystyy kuitenkin poistamaan näin:
@@ -375,9 +375,9 @@ multiset<int> s;
 s.insert(5);
 s.insert(5);
 s.insert(5);
-cout << s.count(5); << "\n"; // 3
+cout << s.count(5) << "\n"; // 3
 s.erase(s.find(5));
-cout << s.count(5); << "\n"; // 2
+cout << s.count(5) << "\n"; // 2
 ```
 
 Tällöin poistettavaksi annetaan alkion asemesta iteraattori alkioon.
