@@ -733,7 +733,7 @@ Voimme tunnistaa syvyyshaun tuottamasta puusta verkon sillat ja artikulaatiopist
 
 Puussa oleva kaari _a_→_b_ vastaa siltaa, jos se on puukaari eikä solmun _b_ alipuusta ole takautuvaa kaarta solmuun _a_ eikä mihinkään solmun _a_ esivanhempaan. Yllä olevassa verkossa esimerkiksi kaari 5→4 vastaa siltaa, koska solmun 4 alipuusta ei ole takautuvaa kaarta solmuun 5 eikä sen esivanhempaan.
 
-Puussa oleva solmu _x_ on artikulaatiopiste kahdessa tapauksessa. Ensinnäkin jos solmu _x_ on juuri, se on artikulaatiopiste tarkalleen silloin, kun sillä on kaksi tai useampia lapsia. Jos taas solmu _x_ ei ole juuri, se on artikulaatiopiste, jos sillä on lapsi, jonka alipuussa ei ole takautuvaa kaarta solmun _x_ esivanhempaan. Yllä olevassa verkossa solmu 5 on artikulaatiopiste, koska se on juuri ja sillä on kaksi lasta. Solmu 4 on puolestaan artikulaatiopiste sen vuoksi, että sen lapsen 2 alipuussa ei ole takautuvaa solmua solmun 4 esivanhempaan.
+Puussa oleva solmu _x_ on artikulaatiopiste kahdessa tapauksessa. Ensinnäkin jos solmu _x_ on juuri, se on artikulaatiopiste tarkalleen silloin, kun sillä on kaksi tai useampia lapsia. Jos taas solmu _x_ ei ole juuri, se on artikulaatiopiste, jos sillä on lapsi, jonka alipuussa ei ole takautuvaa kaarta solmun _x_ esivanhempaan. Yllä olevassa verkossa solmu 5 on artikulaatiopiste, koska se on juuri ja sillä on kaksi lasta. Solmu 4 on puolestaan artikulaatiopiste sen vuoksi, että sen lapsen 2 alipuussa ei ole takautuvaa kaarta solmun 4 esivanhempaan.
 
 Tällä tavalla voimme etsiä sekä verkon sillat että artikulaatiopisteet tehokkaasti lineaarisessa ajassa suorittamalla syvyyshaun jostakin solmusta.
 
